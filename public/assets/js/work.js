@@ -91,7 +91,300 @@ function setLinks(p) {
   wrap.appendChild(row);
 }
 
-function setVideo(youtubeId) {
+function prefersReducedMotion() {
+  return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function imgPath(rel) {
+  return '../../assets/img/' + rel;
+}
+
+function renderYouTubeEmbed(youtubeId, { loading = 'lazy', title = 'YouTube video player' } = {}) {
+  const div = el('div', { class: 'video' });
+  const iframe = document.createElement('iframe');
+  iframe.loading = loading;
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  iframe.allowFullscreen = true;
+  iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+  iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(youtubeId);
+  iframe.title = title;
+  div.appendChild(iframe);
+  return div;
+}
+
+function getSlides(p) {
+  const slides = [];
+  const seen = new Set();
+  if (p.image) {
+    slides.push({ image: p.image, alt: p.title || 'Project image', caption: '' });
+    seen.add(p.image);
+  }
+
+  for (const g of (p.gallery || []).filter(Boolean)) {
+    if (!g.image || seen.has(g.image)) continue;
+    seen.add(g.image);
+    slides.push({
+      image: g.image,
+      alt: g.alt || p.title || 'Project image',
+      caption: g.caption || ''
+    });
+  }
+
+  return slides;
+}
+
+function arrowSVG(dir) {
+  // Minimal chevron icon.
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('aria-hidden', 'true');
+  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  p.setAttribute('d', dir === 'left' ? 'M14 6l-6 6 6 6' : 'M10 6l6 6-6 6');
+  svg.appendChild(p);
+  return svg;
+}
+
+function renderSlideshow(slides, {
+  fallbackAlt = 'Project image',
+  autoplay = true,
+  delayMs = 4500,
+  stageLoading = 'lazy'
+} = {}) {
+  const items = (slides || []).filter((s) => s && s.image);
+  if (!items.length) return el('div', { class: 'note', text: 'Gallery coming soon.' });
+
+  const canAutoplay = autoplay && !prefersReducedMotion() && items.length > 1;
+
+  let idx = 0;
+  let timer = null;
+  let paused = false;
+
+  const wrap = el('div', { class: 'slideshow' });
+  wrap.tabIndex = 0;
+
+  const stage = el('div', { class: 'slide-stage' });
+  const img = el('img', {
+    class: 'slide-img',
+    src: imgPath(items[0].image),
+    alt: items[0].alt || fallbackAlt,
+    loading: stageLoading,
+    decoding: 'async'
+  });
+  stage.appendChild(img);
+
+  const prev = el('button', { class: 'slide-arrow prev', type: 'button', 'aria-label': 'Previous image' }, [arrowSVG('left')]);
+  const next = el('button', { class: 'slide-arrow next', type: 'button', 'aria-label': 'Next image' }, [arrowSVG('right')]);
+  stage.appendChild(prev);
+  stage.appendChild(next);
+
+  const cap = el('div', { class: 'slide-cap' });
+  const thumbs = el('div', { class: 'slide-thumbs' });
+
+  function setIndex(i, user) {
+    idx = (i + items.length) % items.length;
+    const it = items[idx];
+    img.src = imgPath(it.image);
+    img.alt = it.alt || fallbackAlt;
+
+    if (it.caption) {
+      cap.textContent = it.caption;
+      cap.hidden = false;
+    } else {
+      cap.textContent = '';
+      cap.hidden = true;
+    }
+
+    if (items.length > 1) {
+      const btns = thumbs.querySelectorAll('button.thumb');
+      for (let j = 0; j < btns.length; j++) btns[j].classList.toggle('is-active', j === idx);
+    }
+
+    if (user) restart();
+  }
+
+  function stop() {
+    if (timer) window.clearTimeout(timer);
+    timer = null;
+  }
+
+  function schedule() {
+    if (!canAutoplay || paused) return;
+    stop();
+    timer = window.setTimeout(() => {
+      setIndex(idx + 1, false);
+      schedule();
+    }, delayMs);
+  }
+
+  function restart() {
+    if (!canAutoplay || paused) return;
+    schedule();
+  }
+
+  function pause() {
+    paused = true;
+    stop();
+  }
+
+  function resume() {
+    paused = false;
+    schedule();
+  }
+
+  prev.addEventListener('click', () => setIndex(idx - 1, true));
+  next.addEventListener('click', () => setIndex(idx + 1, true));
+
+  // Swipe support (mobile): left/right to navigate.
+  // Keep vertical scrolling working by not calling preventDefault.
+  const SWIPE_MIN_PX = 44;
+  const SWIPE_MAX_Y_PX = 60;
+  let swipeActive = false;
+  let startX = 0;
+  let startY = 0;
+  let startT = 0;
+
+  function swipeStart(x, y) {
+    swipeActive = true;
+    startX = x;
+    startY = y;
+    startT = Date.now();
+    pause();
+  }
+
+  function swipeEnd(x, y) {
+    if (!swipeActive) return;
+    swipeActive = false;
+
+    const dx = x - startX;
+    const dy = y - startY;
+    const adx = Math.abs(dx);
+    const ady = Math.abs(dy);
+    const dt = Date.now() - startT;
+
+    // Require a mostly-horizontal gesture.
+    if (ady > SWIPE_MAX_Y_PX) {
+      resume();
+      return;
+    }
+
+    // Ignore long drags that are likely scrolls.
+    if (dt > 1200) {
+      resume();
+      return;
+    }
+
+    if (adx >= SWIPE_MIN_PX && adx > ady * 1.2) {
+      setIndex(dx < 0 ? idx + 1 : idx - 1, true);
+      return;
+    }
+
+    resume();
+  }
+
+  if (window.PointerEvent) {
+    let pid = null;
+
+    stage.addEventListener('pointerdown', (e) => {
+      if (items.length <= 1) return;
+      if (e.pointerType && e.pointerType !== 'touch' && e.pointerType !== 'pen') return;
+      if (e.target && e.target.closest && e.target.closest('button')) return;
+      pid = e.pointerId;
+      swipeStart(e.clientX, e.clientY);
+    });
+
+    stage.addEventListener('pointerup', (e) => {
+      if (pid === null || e.pointerId !== pid) return;
+      pid = null;
+      swipeEnd(e.clientX, e.clientY);
+    });
+
+    stage.addEventListener('pointercancel', () => {
+      pid = null;
+      swipeActive = false;
+      resume();
+    });
+  } else {
+    stage.addEventListener(
+      'touchstart',
+      (e) => {
+        if (items.length <= 1) return;
+        if (!e.touches || e.touches.length !== 1) return;
+        if (e.target && e.target.closest && e.target.closest('button')) return;
+        const t = e.touches[0];
+        swipeStart(t.clientX, t.clientY);
+      },
+      { passive: true }
+    );
+
+    stage.addEventListener(
+      'touchend',
+      (e) => {
+        if (!e.changedTouches || e.changedTouches.length !== 1) {
+          resume();
+          return;
+        }
+        const t = e.changedTouches[0];
+        swipeEnd(t.clientX, t.clientY);
+      },
+      { passive: true }
+    );
+
+    stage.addEventListener(
+      'touchcancel',
+      () => {
+        swipeActive = false;
+        resume();
+      },
+      { passive: true }
+    );
+  }
+
+  wrap.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      setIndex(idx - 1, true);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      setIndex(idx + 1, true);
+    }
+  });
+
+  stage.addEventListener('mouseenter', pause);
+  stage.addEventListener('mouseleave', resume);
+  wrap.addEventListener('focusin', pause);
+  wrap.addEventListener('focusout', () => {
+    window.setTimeout(() => {
+      if (!wrap.contains(document.activeElement)) resume();
+    }, 0);
+  });
+
+  if (items.length > 1) {
+    for (let i = 0; i < items.length; i++) {
+      const b = el('button', { class: 'thumb', type: 'button', 'aria-label': 'View image ' + (i + 1) });
+      const ti = el('img', {
+        src: imgPath(items[i].image),
+        alt: items[i].alt || fallbackAlt,
+        loading: 'lazy',
+        decoding: 'async'
+      });
+      b.appendChild(ti);
+      b.classList.toggle('is-active', i === 0);
+      b.addEventListener('click', () => setIndex(i, true));
+      thumbs.appendChild(b);
+    }
+  }
+
+  setIndex(0, false);
+
+  wrap.appendChild(stage);
+  wrap.appendChild(cap);
+  if (items.length > 1) wrap.appendChild(thumbs);
+
+  schedule();
+  return wrap;
+}
+
+function setVideoSection(youtubeId) {
   const wrap = document.querySelector('[data-video]');
   if (!wrap) return;
   wrap.innerHTML = '';
@@ -99,43 +392,82 @@ function setVideo(youtubeId) {
     wrap.innerHTML = '<div class="note">Video coming soon.</div>';
     return;
   }
-
-  const div = el('div', { class: 'video' });
-  const iframe = document.createElement('iframe');
-  iframe.loading = 'lazy';
-  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-  iframe.allowFullscreen = true;
-  iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-  iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(youtubeId);
-  iframe.title = 'YouTube video player';
-  div.appendChild(iframe);
-  wrap.appendChild(div);
+  wrap.appendChild(renderYouTubeEmbed(youtubeId));
 }
 
-function setGallery(p) {
+function setGallerySection(p) {
   const wrap = document.querySelector('[data-gallery]');
   if (!wrap) return;
   wrap.innerHTML = '';
+  wrap.appendChild(renderSlideshow(getSlides(p), { fallbackAlt: p.title || 'Project image', autoplay: true, delayMs: 4500 }));
+}
 
-  const items = (p.gallery || []).filter(Boolean);
-  if (!items.length) {
-    wrap.innerHTML = '<div class="note">Gallery coming soon.</div>';
-    return;
+function setBanner(p) {
+  const heroImg = document.querySelector('[data-hero-img]');
+  if (!heroImg) return;
+  const slot = heroImg.closest('.gitem');
+  if (!slot) return;
+
+  const banner = el('div', { class: 'banner' });
+  if (p.youtubeId) {
+    banner.appendChild(renderYouTubeEmbed(p.youtubeId, { loading: 'lazy', title: (p.title || 'Project') + ' video' }));
+  } else {
+    banner.appendChild(
+      renderSlideshow(getSlides(p), {
+        fallbackAlt: p.title || 'Project image',
+        autoplay: true,
+        delayMs: 4200,
+        stageLoading: 'eager'
+      })
+    );
   }
 
-  const grid = el('div', { class: 'gallery' });
-  for (const g of items) {
-    const img = el('img', {
-      src: '../../assets/img/' + g.image,
-      alt: g.alt || p.title,
-      loading: 'lazy',
-      decoding: 'async'
-    });
-    const box = el('div', { class: 'gitem' }, [img]);
-    if (g.caption) box.appendChild(el('div', { class: 'gcap', text: g.caption }));
-    grid.appendChild(box);
+  slot.replaceWith(banner);
+}
+
+function cleanupWorkSpacers() {
+  const container = document.querySelector('main .container');
+  if (!container) return;
+  // Remove empty spacer divs used by the static templates.
+  const kids = Array.from(container.children);
+  for (const k of kids) {
+    if (k.tagName !== 'DIV') continue;
+    if (!k.getAttribute('style')) continue;
+    if ((k.textContent || '').trim()) continue;
+    const h = k.style && k.style.height ? String(k.style.height).trim() : '';
+    if (h === '14px') k.remove();
   }
-  wrap.appendChild(grid);
+}
+
+function setWorkLayout(p) {
+  cleanupWorkSpacers();
+
+  const grid = document.querySelector('.work-grid');
+  const videoWrap = document.querySelector('[data-video]');
+  const galleryWrap = document.querySelector('[data-gallery]');
+  const linksWrap = document.querySelector('[data-links]');
+
+  const videoSection = videoWrap ? videoWrap.closest('section') : null;
+  const gallerySection = galleryWrap ? galleryWrap.closest('section') : null;
+  const linksSection = linksWrap ? linksWrap.closest('section') : null;
+
+  if (p.youtubeId) {
+    if (videoSection) videoSection.hidden = true;
+    if (gallerySection) gallerySection.hidden = false;
+    if (linksSection && gallerySection) linksSection.insertAdjacentElement('afterend', gallerySection);
+  } else {
+    if (gallerySection) gallerySection.hidden = true;
+    if (videoSection) {
+      videoSection.hidden = false;
+      setVideoSection('');
+      if (linksSection) linksSection.insertAdjacentElement('afterend', videoSection);
+    }
+  }
+
+  if (grid) {
+    const visible = Array.from(grid.children).filter((n) => n.tagName === 'SECTION' && !n.hidden);
+    grid.setAttribute('data-cols', visible.length <= 1 ? '1' : '2');
+  }
 }
 
 function scoreRelated(a, b) {
@@ -209,13 +541,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     setFacts(p);
     setTags(p);
 
-    setAttr('[data-hero-img]', 'src', '../../assets/img/' + p.image);
+    setAttr('[data-hero-img]', 'src', imgPath(p.image));
     setAttr('[data-hero-img]', 'alt', p.title);
 
     setOutcomes(p);
-    setVideo(p.youtubeId);
-    setGallery(p);
+    setVideoSection(p.youtubeId);
+    setGallerySection(p);
     setLinks(p);
+    setBanner(p);
+    setWorkLayout(p);
     renderRelated(projects, p);
     if (window.revealRefresh) window.revealRefresh();
   } catch (err) {

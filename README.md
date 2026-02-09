@@ -41,6 +41,7 @@ Optional but recommended:
 - `role`, `orgs`
 - `outcomes` (2-5 bullets)
 - `links` (paper/code/demo)
+- `youtubeId` (YouTube video id; work pages embed via `youtube-nocookie.com`)
 - `gallery` (extra images for the work page)
 
 2) Add the project page (URL stays stable):
@@ -82,3 +83,12 @@ python3 scripts/import_squarespace_images.py
 ```
 
 Images land in `public/assets/img/projects/<slug>/`.
+
+### Extract YouTube embeds from Squarespace work pages
+
+If your old Squarespace project pages included embedded YouTube videos, you can
+extract the video IDs and update `public/assets/data/projects.json`:
+
+```bash
+python3 scripts/extract_squarespace_youtube_ids.py --update-projects-json public/assets/data/projects.json
+```
