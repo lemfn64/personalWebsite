@@ -6,18 +6,45 @@
       "impact": "Low-profile wearable electrical stimulation haptics for teleoperation and VR.",
       "year": 2024,
       "featured": true,
-      "tags": ["Haptics", "Teleoperation", "Wearables", "Electrical Stimulation", "VR"],
+      "tags": [
+        "Haptics",
+        "Teleoperation",
+        "Wearables",
+        "Electrical Stimulation",
+        "VR"
+      ],
       "role": "Lead / Research engineering",
-      "orgs": ["VA-affiliated programs"],
+      "orgs": [
+        "VA-affiliated programs"
+      ],
       "image": "stim.png",
       "youtubeId": "",
       "outcomes": [
         "Designed a compact, wearable stimulation interface compatible with optical hand tracking.",
         "Demonstrated spatially congruent fingertip sensation without impeding manipulation."
       ],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/a-low-profile-haptic-interface-based-on-surface-electrical-nerve-stimulation-for-teleoperation/SensationFig.png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/a-low-profile-haptic-interface-based-on-surface-electrical-nerve-stimulation-for-teleoperation/trackingSetup.png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/a-low-profile-haptic-interface-based-on-surface-electrical-nerve-stimulation-for-teleoperation/Screenshot+2024-11-14+145022.png",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": [
-        { "label": "Paper (IEEE Telepresence)", "url": "https://doi.org/10.1109/Telepresence63209.2024.10841536" }
+        {
+          "label": "Paper (IEEE Telepresence)",
+          "url": "https://doi.org/10.1109/Telepresence63209.2024.10841536"
+        }
       ]
     },
     {
@@ -26,7 +53,12 @@
       "impact": "Electrical stimulation feedback mapped to VR interactions for more informative touch.",
       "year": 2022,
       "featured": true,
-      "tags": ["Haptics", "VR", "Wearables", "Electrical Stimulation"],
+      "tags": [
+        "Haptics",
+        "VR",
+        "Wearables",
+        "Electrical Stimulation"
+      ],
       "role": "Research engineering",
       "orgs": [],
       "image": "outside-operator.jpg",
@@ -35,7 +67,23 @@
         "Prototyped stimulation-driven haptic feedback for immersive interaction.",
         "Built reproducible experimental workflows for human-subject evaluation."
       ],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/artificial-touch-feedback-through-skin-surface-electrical-stimulation-for-vr-applications-44xgk/Stim+system+dev.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/artificial-touch-feedback-through-skin-surface-electrical-stimulation-for-vr-applications-44xgk/tResults52.png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/artificial-touch-feedback-through-skin-surface-electrical-stimulation-for-vr-applications-44xgk/DSC09076.JPG",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": []
     },
     {
@@ -44,16 +92,38 @@
       "impact": "VR-based assessment and training tools for ocular disorders in clinical workflows.",
       "year": 2025,
       "featured": true,
-      "tags": ["VR", "Clinical Research", "Eye Tracking"],
+      "tags": [
+        "VR",
+        "Clinical Research",
+        "Eye Tracking"
+      ],
       "role": "Lead / Research engineering",
-      "orgs": ["VA-affiliated programs"],
+      "orgs": [
+        "VA-affiliated programs"
+      ],
       "image": "ocular-vr.png",
       "youtubeId": "",
       "outcomes": [
         "Delivered Unity-based diagnostics and rehabilitation tools integrating eye tracking.",
         "Implemented IRB-compliant protocols and clinician-facing workflows."
       ],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/treatment-and-assessment-of-ocular-disorders-through-vr-games/StereoAcuity.PNG",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/treatment-and-assessment-of-ocular-disorders-through-vr-games/treatment.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/treatment-and-assessment-of-ocular-disorders-through-vr-games/ocular+VR.PNG",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": []
     },
     {
@@ -62,18 +132,49 @@
       "impact": "Multimodal immersive teleoperation system design and evaluation lessons learned.",
       "year": 2024,
       "featured": true,
-      "tags": ["Teleoperation", "Human-Robot Interaction", "VR", "Haptics"],
+      "tags": [
+        "Teleoperation",
+        "Human-Robot Interaction",
+        "VR",
+        "Haptics"
+      ],
       "role": "Research engineering",
-      "orgs": ["HFI"],
+      "orgs": [
+        "HFI"
+      ],
       "image": "operator-centric.jpg",
       "youtubeId": "",
       "outcomes": [
         "Built a low-latency teleoperation interface combining VR, audio, and haptics.",
         "Documented system architecture and operator-centric design decisions."
       ],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/operator-centric-design-of-a-teleoperation-system/IMG20220715182322.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/operator-centric-design-of-a-teleoperation-system/Handshake.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/operator-centric-design-of-a-teleoperation-system/IMG_8705.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/operator-centric-design-of-a-teleoperation-system/IMG_8705.JPG",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": [
-        { "label": "RSS 2022 Workshop", "url": "https://roboticsconference.org/2022/program/workshops/" }
+        {
+          "label": "RSS 2022 Workshop",
+          "url": "https://roboticsconference.org/2022/program/workshops/"
+        }
       ]
     },
     {
@@ -82,13 +183,37 @@
       "impact": "Hands-on workshop exploring sensing and stimulation in education.",
       "year": 2022,
       "featured": false,
-      "tags": ["Wearables", "Electrical Stimulation"],
+      "tags": [
+        "Wearables",
+        "Electrical Stimulation"
+      ],
       "role": "Contributor",
       "orgs": [],
       "image": "estim-workshop.jpg",
       "youtubeId": "",
       "outcomes": [],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/e-stim-for-educators-workshop/flappy+bird+game.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/e-stim-for-educators-workshop/HHI_WhatsInBox1.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/e-stim-for-educators-workshop/IMG_8527+(1).JPG",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/e-stim-for-educators-workshop/CaptureFlappy.JPG",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": []
     },
     {
@@ -97,13 +222,32 @@
       "impact": "Virtual labs to improve engagement and learning outcomes.",
       "year": 2019,
       "featured": false,
-      "tags": ["VR", "Education"],
+      "tags": [
+        "VR",
+        "Education"
+      ],
       "role": "Contributor",
       "orgs": [],
       "image": "vr-lab.jpg",
       "youtubeId": "",
       "outcomes": [],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/the-benefits-of-a-virtual-reality-lab-over-a-lab-manual/4.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/the-benefits-of-a-virtual-reality-lab-over-a-lab-manual/5.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/the-benefits-of-a-virtual-reality-lab-over-a-lab-manual/Screenshot_20180329-144136.jpg",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": []
     },
     {
@@ -112,13 +256,42 @@
       "impact": "Community-facing tech education and outreach.",
       "year": 2019,
       "featured": false,
-      "tags": ["Outreach", "Education"],
+      "tags": [
+        "Outreach",
+        "Education"
+      ],
       "role": "Contributor",
       "orgs": [],
       "image": "tech-love.jpg",
       "youtubeId": "",
       "outcomes": [],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/tech-love-project/IMG-20180712-WA0007.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/tech-love-project/IMG-20180712-WA0006.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/tech-love-project/IMG-20180712-WA0001.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/tech-love-project/IMG-20170915-WA0004.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/tech-love-project/IMG_20170602_114000.jpg",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": []
     },
     {
@@ -127,13 +300,72 @@
       "impact": "Mobile app for program communication and events.",
       "year": 2019,
       "featured": false,
-      "tags": ["Mobile", "Product"],
+      "tags": [
+        "Mobile",
+        "Product"
+      ],
       "role": "Contributor",
       "orgs": [],
       "image": "honors-app.jpg",
       "youtubeId": "",
       "outcomes": [],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/honors-institute-app/image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/HonorsBlog.png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/conference+seattle+poster+stats.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/CarPool.png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/Calendar.png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/image-asset.png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/69CCE079-C441-4E63-86B6-8AE9FF8B765A.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/1575101437993-006KBW4IW311FHZ1J167_image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/1575101187478-XU5KZQ2BI5LAXR4B4Q1V_image-asset.png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/1575101095628-OMT1AR7RC322012ETZA7_image-asset.png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/honors-institute-app/rsz_banner1.jpg",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": []
     },
     {
@@ -142,7 +374,10 @@
       "impact": "Voice-first inventory UX for low-literacy environments.",
       "year": 2019,
       "featured": false,
-      "tags": ["UX", "Accessibility"],
+      "tags": [
+        "UX",
+        "Accessibility"
+      ],
       "role": "Contributor",
       "orgs": [],
       "image": "voice-inventory.png",
@@ -157,7 +392,10 @@
       "impact": "Interactive physics learning experiences in VR.",
       "year": 2019,
       "featured": false,
-      "tags": ["VR", "Education"],
+      "tags": [
+        "VR",
+        "Education"
+      ],
       "role": "Contributor",
       "orgs": [],
       "image": "vr-physics.jpg",
@@ -172,13 +410,52 @@
       "impact": "EMG-driven activity tracking and visualization.",
       "year": 2019,
       "featured": false,
-      "tags": ["Biosignals", "Wearables"],
+      "tags": [
+        "Biosignals",
+        "Wearables"
+      ],
       "role": "Contributor",
       "orgs": [],
       "image": "myographic.jpg",
       "youtubeId": "",
       "outcomes": [],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/myographic-activity-tracker/image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/myographic-activity-tracker/E459EAAB-8117-44EC-920F-1859FB65EEAB.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/myographic-activity-tracker/P_20160425_095722.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/myographic-activity-tracker/P_20160502_081459.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/myographic-activity-tracker/1575101556653-V49P0MX4AXQ7LHEJ5QIV_image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/myographic-activity-tracker/1575101618235-WFGULU5Y8QXRLV6RHGVH_image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/myographic-activity-tracker/1575101692901-1F37OJSROTZVL0XZ59KM_image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": []
     },
     {
@@ -187,13 +464,71 @@
       "impact": "A collection of additional work and experiments.",
       "year": 2019,
       "featured": false,
-      "tags": ["Misc"],
+      "tags": [
+        "Misc"
+      ],
       "role": "",
       "orgs": [],
       "image": "other-projects.jpg",
       "youtubeId": "",
       "outcomes": [],
-      "gallery": [],
+      "gallery": [
+        {
+          "image": "projects/other-projects/Screenshot_20181116-141005.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/MFVI7425.JPG",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/FB_IMG_1492789032078.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/44396990_349837398920634_590107096207736687_n.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/43330877_2036161073108242_4058784179102139949_n.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/43984826_331914127610977_6966156733180856527_n.jpg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/My+Post+(4).png",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/1575101977150-4JOWNV6GWB982X23WZLT_image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/1575102067104-KIBXRQTQZ2B0UDZGYX6B_image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        },
+        {
+          "image": "projects/other-projects/1575102186780-B6QB5V1Q8Y696QF0PWR5_image-asset.jpeg",
+          "caption": "",
+          "alt": ""
+        }
+      ],
       "links": []
     }
   ]

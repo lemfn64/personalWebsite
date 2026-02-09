@@ -134,9 +134,21 @@ a:hover { color: var(--brand); }
   border: 1px solid rgba(18, 22, 30, 0.12);
   background: rgba(255, 255, 255, 0.65);
   color: rgba(18, 22, 30, 0.72);
-  font-family: var(--mono);
-  font-size: 12px;
+  font-size: 0;
   text-decoration: none;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.icon path,
+.icon rect,
+.icon circle,
+.icon polygon {
+  fill: currentColor;
 }
 
 .iconlink:hover {
