@@ -1,0 +1,200 @@
+{
+  "projects": [
+    {
+      "slug": "a-low-profile-haptic-interface-based-on-surface-electrical-nerve-stimulation-for-teleoperation",
+      "title": "A Low-profile Haptic Interface Based on Surface Electrical Nerve Stimulation for Teleoperation",
+      "impact": "Low-profile wearable electrical stimulation haptics for teleoperation and VR.",
+      "year": 2024,
+      "featured": true,
+      "tags": ["Haptics", "Teleoperation", "Wearables", "Electrical Stimulation", "VR"],
+      "role": "Lead / Research engineering",
+      "orgs": ["VA-affiliated programs"],
+      "image": "stim.png",
+      "youtubeId": "",
+      "outcomes": [
+        "Designed a compact, wearable stimulation interface compatible with optical hand tracking.",
+        "Demonstrated spatially congruent fingertip sensation without impeding manipulation."
+      ],
+      "gallery": [],
+      "links": [
+        { "label": "Paper (IEEE Telepresence)", "url": "https://doi.org/10.1109/Telepresence63209.2024.10841536" }
+      ]
+    },
+    {
+      "slug": "artificial-touch-feedback-through-skin-surface-electrical-stimulation-for-vr-applications-44xgk",
+      "title": "Artificial Touch Feedback Through Skin-surface Electrical Stimulation for VR Applications",
+      "impact": "Electrical stimulation feedback mapped to VR interactions for more informative touch.",
+      "year": 2022,
+      "featured": true,
+      "tags": ["Haptics", "VR", "Wearables", "Electrical Stimulation"],
+      "role": "Research engineering",
+      "orgs": [],
+      "image": "outside-operator.jpg",
+      "youtubeId": "",
+      "outcomes": [
+        "Prototyped stimulation-driven haptic feedback for immersive interaction.",
+        "Built reproducible experimental workflows for human-subject evaluation."
+      ],
+      "gallery": [],
+      "links": []
+    },
+    {
+      "slug": "treatment-and-assessment-of-ocular-disorders-through-vr-games",
+      "title": "Treatment and Assessment of Ocular Disorders Through VR Games",
+      "impact": "VR-based assessment and training tools for ocular disorders in clinical workflows.",
+      "year": 2025,
+      "featured": true,
+      "tags": ["VR", "Clinical Research", "Eye Tracking"],
+      "role": "Lead / Research engineering",
+      "orgs": ["VA-affiliated programs"],
+      "image": "ocular-vr.png",
+      "youtubeId": "",
+      "outcomes": [
+        "Delivered Unity-based diagnostics and rehabilitation tools integrating eye tracking.",
+        "Implemented IRB-compliant protocols and clinician-facing workflows."
+      ],
+      "gallery": [],
+      "links": []
+    },
+    {
+      "slug": "operator-centric-design-of-a-teleoperation-system",
+      "title": "Operator Centric Design of a Teleoperation System",
+      "impact": "Multimodal immersive teleoperation system design and evaluation lessons learned.",
+      "year": 2024,
+      "featured": true,
+      "tags": ["Teleoperation", "Human-Robot Interaction", "VR", "Haptics"],
+      "role": "Research engineering",
+      "orgs": ["HFI"],
+      "image": "operator-centric.jpg",
+      "youtubeId": "",
+      "outcomes": [
+        "Built a low-latency teleoperation interface combining VR, audio, and haptics.",
+        "Documented system architecture and operator-centric design decisions."
+      ],
+      "gallery": [],
+      "links": [
+        { "label": "RSS 2022 Workshop", "url": "https://roboticsconference.org/2022/program/workshops/" }
+      ]
+    },
+    {
+      "slug": "e-stim-for-educators-workshop",
+      "title": "E-Stim for Educators workshop",
+      "impact": "Hands-on workshop exploring sensing and stimulation in education.",
+      "year": 2022,
+      "featured": false,
+      "tags": ["Wearables", "Electrical Stimulation"],
+      "role": "Contributor",
+      "orgs": [],
+      "image": "estim-workshop.jpg",
+      "youtubeId": "",
+      "outcomes": [],
+      "gallery": [],
+      "links": []
+    },
+    {
+      "slug": "the-benefits-of-a-virtual-reality-lab-over-a-lab-manual",
+      "title": "The Benefits of a Virtual Reality Lab Over a Lab Manual",
+      "impact": "Virtual labs to improve engagement and learning outcomes.",
+      "year": 2019,
+      "featured": false,
+      "tags": ["VR", "Education"],
+      "role": "Contributor",
+      "orgs": [],
+      "image": "vr-lab.jpg",
+      "youtubeId": "",
+      "outcomes": [],
+      "gallery": [],
+      "links": []
+    },
+    {
+      "slug": "tech-love-project",
+      "title": "Tech Love Project",
+      "impact": "Community-facing tech education and outreach.",
+      "year": 2019,
+      "featured": false,
+      "tags": ["Outreach", "Education"],
+      "role": "Contributor",
+      "orgs": [],
+      "image": "tech-love.jpg",
+      "youtubeId": "",
+      "outcomes": [],
+      "gallery": [],
+      "links": []
+    },
+    {
+      "slug": "honors-institute-app",
+      "title": "Honors Institute App",
+      "impact": "Mobile app for program communication and events.",
+      "year": 2019,
+      "featured": false,
+      "tags": ["Mobile", "Product"],
+      "role": "Contributor",
+      "orgs": [],
+      "image": "honors-app.jpg",
+      "youtubeId": "",
+      "outcomes": [],
+      "gallery": [],
+      "links": []
+    },
+    {
+      "slug": "voiceactivated-inventory-for-illiterate-mechanics",
+      "title": "Voice-activated inventory for illiterate mechanics",
+      "impact": "Voice-first inventory UX for low-literacy environments.",
+      "year": 2019,
+      "featured": false,
+      "tags": ["UX", "Accessibility"],
+      "role": "Contributor",
+      "orgs": [],
+      "image": "voice-inventory.png",
+      "youtubeId": "",
+      "outcomes": [],
+      "gallery": [],
+      "links": []
+    },
+    {
+      "slug": "vr-physics",
+      "title": "VR Physics",
+      "impact": "Interactive physics learning experiences in VR.",
+      "year": 2019,
+      "featured": false,
+      "tags": ["VR", "Education"],
+      "role": "Contributor",
+      "orgs": [],
+      "image": "vr-physics.jpg",
+      "youtubeId": "",
+      "outcomes": [],
+      "gallery": [],
+      "links": []
+    },
+    {
+      "slug": "myographic-activity-tracker",
+      "title": "Myographic Activity Tracker",
+      "impact": "EMG-driven activity tracking and visualization.",
+      "year": 2019,
+      "featured": false,
+      "tags": ["Biosignals", "Wearables"],
+      "role": "Contributor",
+      "orgs": [],
+      "image": "myographic.jpg",
+      "youtubeId": "",
+      "outcomes": [],
+      "gallery": [],
+      "links": []
+    },
+    {
+      "slug": "other-projects",
+      "title": "Other Projects",
+      "impact": "A collection of additional work and experiments.",
+      "year": 2019,
+      "featured": false,
+      "tags": ["Misc"],
+      "role": "",
+      "orgs": [],
+      "image": "other-projects.jpg",
+      "youtubeId": "",
+      "outcomes": [],
+      "gallery": [],
+      "links": []
+    }
+  ]
+}

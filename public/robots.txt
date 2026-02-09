@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lemfn64.github.io/personalWebsite/sitemap.xml

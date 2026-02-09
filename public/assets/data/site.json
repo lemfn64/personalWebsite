@@ -1,0 +1,30 @@
+{
+  "name": "Luis Mesias",
+  "headline": "Senior Research Engineer building VR, haptics, and clinical research systems.",
+  "subheadline": "5+ years leading human-subject studies and VA-affiliated programs.",
+  "highlights": [
+    "Independently implemented a home-based clinical trial workflow spanning IRB, recruitment, intervention delivery, and outcomes analysis.",
+    "Delivered Unity-based VR diagnostics and rehabilitation tools for veterans with TBI, integrating eye tracking, IRB-compliant protocols, and clinician-facing workflows."
+  ],
+  "focusTags": [
+    "Haptics",
+    "Teleoperation",
+    "VR",
+    "Human-Robot Interaction",
+    "Wearables",
+    "Electrical Stimulation"
+  ],
+  "featuredProjectSlugs": [
+    "a-low-profile-haptic-interface-based-on-surface-electrical-nerve-stimulation-for-teleoperation",
+    "artificial-touch-feedback-through-skin-surface-electrical-stimulation-for-vr-applications-44xgk",
+    "treatment-and-assessment-of-ocular-disorders-through-vr-games",
+    "operator-centric-design-of-a-teleoperation-system"
+  ],
+  "contact": {
+    "email": "lemfn64@gmail.com"
+  },
+  "social": {
+    "linkedin": "http://www.linkedin.com/in/luis-mesias",
+    "youtube": "https://www.youtube.com/channel/UCXrkMimzVqbAM0s4F1IW5pw/"
+  }
+}

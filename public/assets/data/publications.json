@@ -1,0 +1,43 @@
+{
+  "publications": [
+    {
+      "title": "Distally-referred surface electrical nerve stimulation (DR-SENS) for haptic feedback",
+      "authors": "Luis Mesias et al.",
+      "year": 2024,
+      "type": "Journal",
+      "venue": "Journal of Neural Engineering",
+      "note": "Characterizes DR-SENS electrode placement and perceived sensation location.",
+      "doi": "10.1088/1741-2552/ad0563",
+      "url": "https://doi.org/10.1088/1741-2552/ad0563",
+      "links": [
+        { "label": "DOI", "url": "https://doi.org/10.1088/1741-2552/ad0563" }
+      ]
+    },
+    {
+      "title": "Design and Evaluation of a Low-profile Haptic Interface Based on Surface Electrical Nerve Stimulation",
+      "authors": "Luis Mesias et al.",
+      "year": 2024,
+      "type": "Conference",
+      "venue": "IEEE Conference on Telepresence",
+      "note": "Wearable stimulation interface compatible with optical hand tracking.",
+      "doi": "10.1109/Telepresence63209.2024.10841536",
+      "url": "https://doi.org/10.1109/Telepresence63209.2024.10841536",
+      "links": [
+        { "label": "DOI", "url": "https://doi.org/10.1109/Telepresence63209.2024.10841536" }
+      ]
+    },
+    {
+      "title": "An Operator-centric Design of an Avatar System using Digital Nerve Stimulation",
+      "authors": "Luis Mesias et al.",
+      "year": 2022,
+      "type": "Workshop",
+      "venue": "Robotics: Science and Systems (Workshop)",
+      "note": "System architecture and human interface for immersive teleoperation.",
+      "doi": "",
+      "url": "https://roboticsconference.org/2022/program/workshops/",
+      "links": [
+        { "label": "Workshop", "url": "https://roboticsconference.org/2022/program/workshops/" }
+      ]
+    }
+  ]
+}
