@@ -4,6 +4,22 @@ async function loadJSON(url) {
   return await res.json();
 }
 
+const DATA_BASE_URL = (() => {
+  // Compute relative to the script URL (`.../assets/js/projects.js` -> `.../assets/data/`).
+  try {
+    if (document.currentScript && document.currentScript.src) return new URL('../data/', document.currentScript.src);
+  } catch (_) {
+    // ignore
+  }
+  return null;
+})();
+
+function dataURL(filename) {
+  if (DATA_BASE_URL) return new URL(filename, DATA_BASE_URL).toString();
+  // Fallback for unusual execution environments.
+  return './assets/data/' + filename;
+}
+
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
@@ -157,14 +173,15 @@ function sortProjects(projects) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   const allGrid = document.querySelector('[data-project-grid]');
+  const featGrid = document.querySelector('[data-featured-grid]');
   const filtersWrap = document.querySelector('[data-project-filters]');
   const search = document.querySelector('[data-project-search]');
   const activePill = document.querySelector('[data-active-filter]');
 
   try {
     const [siteData, projData] = await Promise.all([
-      loadJSON('./assets/data/site.json'),
-      loadJSON('./assets/data/projects.json')
+      loadJSON(dataURL('site.json')),
+      loadJSON(dataURL('projects.json'))
     ]);
 
     const projects = sortProjects(projData.projects || []);
@@ -211,8 +228,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   } catch (err) {
     console.error(err);
+    if (featGrid) {
+      featGrid.innerHTML = '<div class="note">Could not load featured projects.</div>';
+    }
     if (allGrid) {
       allGrid.innerHTML = '<div class="note">Could not load project data.</div>';
     }
+    if (filtersWrap) filtersWrap.innerHTML = '';
   }
 });

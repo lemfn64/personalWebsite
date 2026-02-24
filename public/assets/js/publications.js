@@ -4,6 +4,21 @@ async function loadJSON(url) {
   return await res.json();
 }
 
+const DATA_BASE_URL = (() => {
+  // Compute relative to the script URL (`.../assets/js/publications.js` -> `.../assets/data/`).
+  try {
+    if (document.currentScript && document.currentScript.src) return new URL('../data/', document.currentScript.src);
+  } catch (_) {
+    // ignore
+  }
+  return null;
+})();
+
+function dataURL(filename) {
+  if (DATA_BASE_URL) return new URL(filename, DATA_BASE_URL).toString();
+  return '../assets/data/' + filename;
+}
+
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
@@ -101,7 +116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const search = document.querySelector('[data-pub-search]');
 
   try {
-    const data = await loadJSON('../assets/data/publications.json');
+    const data = await loadJSON(dataURL('publications.json'));
     const pubs = (data.publications || []).slice().sort((a, b) => Number(b.year || 0) - Number(a.year || 0));
 
     const types = uniqSorted(pubs.map((p) => p.type));
@@ -157,5 +172,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (err) {
     console.error(err);
     if (list) list.innerHTML = '<div class="note">Could not load publication data.</div>';
+    if (typeRow) typeRow.innerHTML = '';
+    if (yearRow) yearRow.innerHTML = '';
   }
 });

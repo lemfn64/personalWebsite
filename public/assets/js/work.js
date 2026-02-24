@@ -4,6 +4,21 @@ async function loadJSON(url) {
   return await res.json();
 }
 
+const DATA_BASE_URL = (() => {
+  // Compute relative to the script URL (`.../assets/js/work.js` -> `.../assets/data/`).
+  try {
+    if (document.currentScript && document.currentScript.src) return new URL('../data/', document.currentScript.src);
+  } catch (_) {
+    // ignore
+  }
+  return null;
+})();
+
+function dataURL(filename) {
+  if (DATA_BASE_URL) return new URL(filename, DATA_BASE_URL).toString();
+  return '../../assets/data/' + filename;
+}
+
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
@@ -524,7 +539,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!slug) return;
 
   try {
-    const data = await loadJSON('../../assets/data/projects.json');
+    const data = await loadJSON(dataURL('projects.json'));
     const projects = data.projects || [];
     const p = projects.find((x) => x.slug === slug);
 
