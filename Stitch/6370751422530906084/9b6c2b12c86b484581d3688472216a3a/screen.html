@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#f5fafc",
+              "primary-fixed": "#e1e1f1",
+              "on-tertiary-container": "#0094b5",
+              "primary-container": "#1e202b",
+              "tertiary-fixed-dim": "#4cd6ff",
+              "surface-container-low": "#eff4f6",
+              "on-error-container": "#93000a",
+              "surface-container": "#eaeff1",
+              "surface-container-highest": "#dee3e5",
+              "on-secondary-container": "#546770",
+              "on-secondary": "#ffffff",
+              "background": "#f5fafc",
+              "on-surface": "#171c1e",
+              "on-primary-container": "#868795",
+              "on-tertiary-fixed-variant": "#004e60",
+              "secondary-container": "#d1e6f0",
+              "error": "#ba1a1a",
+              "surface-variant": "#dee3e5",
+              "inverse-surface": "#2c3133",
+              "outline-variant": "#c7c5cc",
+              "primary-fixed-dim": "#c5c5d4",
+              "on-primary": "#ffffff",
+              "surface-tint": "#5c5e6a",
+              "secondary-fixed": "#d1e6f0",
+              "on-primary-fixed-variant": "#444652",
+              "tertiary": "#000b10",
+              "primary": "#070913",
+              "on-tertiary-fixed": "#001f28",
+              "on-tertiary": "#ffffff",
+              "surface": "#f5fafc",
+              "secondary": "#4e616a",
+              "on-secondary-fixed": "#0a1e25",
+              "outline": "#77767c",
+              "on-secondary-fixed-variant": "#374a51",
+              "on-background": "#171c1e",
+              "surface-container-high": "#e4e9eb",
+              "on-surface-variant": "#46464c",
+              "tertiary-container": "#00242e",
+              "secondary-fixed-dim": "#b5cad3",
+              "inverse-on-surface": "#ecf1f3",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#b7eaff",
+              "on-primary-fixed": "#191b26",
+              "surface-dim": "#d6dbdd",
+              "inverse-primary": "#c5c5d4",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .haptic-pulse {
+            box-shadow: 0 0 0 0 rgba(76, 214, 255, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 214, 255, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(76, 214, 255, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 214, 255, 0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-tertiary-fixed-dim selection:text-primary">
+<!-- Top Navigation Anchor (Mobile Optimization) -->
+<nav class="w-full sticky top-0 z-50 bg-[#F5FAFC] dark:bg-[#070913] flex items-center justify-between px-6 py-5 max-w-[1440px] mx-auto w-full">
+<div class="flex flex-col">
+<span class="text-2xl font-bold tracking-tighter text-[#070913] dark:text-[#F5FAFC] font-['Space_Grotesk']">Research Publications</span>
+<span class="font-['Space_Grotesk'] uppercase text-[10px] tracking-[0.2em] text-[#4E616A] mt-0.5">Clinical Precisionist</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#070913] dark:text-[#F5FAFC] text-2xl">account_circle</span>
+</div>
+</nav>
+<!-- Mobile Header Hero Section -->
+<header class="px-6 py-10 bg-gradient-to-br from-surface to-surface-container-low overflow-hidden relative">
+<div class="absolute -right-20 -top-10 w-64 h-64 rounded-full bg-tertiary-fixed-dim opacity-10 blur-3xl"></div>
+<div class="relative z-10">
+<h1 class="font-headline text-4xl font-bold tracking-tight text-primary leading-none mb-4">Archive &amp; <br/>Insights</h1>
+<p class="text-secondary body-lg max-w-[280px]">Curating the intersection of haptic engineering and medical visuality.</p>
+</div>
+</header>
+<!-- Search & Filter Controls (Mobile Stacked Layout) -->
+<section class="px-6 py-8 space-y-6">
+<!-- Search -->
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none border-b-2 border-transparent focus:border-tertiary-fixed-dim focus:ring-0 py-4 px-4 font-body text-sm rounded-xl transition-all" placeholder="Search publications..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-secondary">search</span>
+</div>
+<!-- Filter Tags Horizontal Scroll -->
+<div class="flex flex-col gap-3">
+<span class="font-headline uppercase text-[10px] tracking-widest text-secondary font-bold">Filter Archive</span>
+<div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar -mx-6 px-6">
+<button class="flex-none px-5 py-2.5 bg-primary text-on-primary rounded-full text-sm font-medium whitespace-nowrap">All Types</button>
+<button class="flex-none px-5 py-2.5 bg-surface-container-high text-secondary rounded-full text-sm font-medium whitespace-nowrap">Conferences</button>
+<button class="flex-none px-5 py-2.5 bg-surface-container-high text-secondary rounded-full text-sm font-medium whitespace-nowrap">Journals</button>
+<button class="flex-none px-5 py-2.5 bg-surface-container-high text-secondary rounded-full text-sm font-medium whitespace-nowrap">Workshops</button>
+<button class="flex-none px-5 py-2.5 bg-surface-container-high text-secondary rounded-full text-sm font-medium whitespace-nowrap">Preprints</button>
+</div>
+</div>
+</section>
+<!-- Publication List (Vertical Stack) -->
+<main class="px-6 pb-32 space-y-10">
+<!-- Publication Item 1 -->
+<article class="group">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-1.5 h-1.5 mt-2.5 rounded-full bg-tertiary-fixed-dim haptic-pulse shrink-0"></div>
+<div class="space-y-1">
+<span class="font-headline uppercase text-[10px] tracking-[0.2em] text-[#4CD6FF] font-bold">Journal • 2024</span>
+<h2 class="font-headline text-xl font-bold leading-snug text-primary group-active:text-tertiary-fixed-dim transition-colors">Tactile Feedback Loops in Remote Surgical VR Environments</h2>
+</div>
+</div>
+<p class="text-secondary text-sm leading-relaxed mb-6 pl-5">Examining the latency-precision trade-off in haptic gloves during complex micro-suturing simulations.</p>
+<div class="pl-5 flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container-high text-secondary text-[10px] font-bold uppercase rounded-full tracking-wider">Haptics</span>
+<span class="px-3 py-1 bg-surface-container-high text-secondary text-[10px] font-bold uppercase rounded-full tracking-wider">VR Optics</span>
+</div>
+<a class="ml-5 flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 active:scale-[0.98] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">description</span>
+<span class="font-headline text-xs font-bold tracking-tight text-primary">DOI: 10.1145/3411764.3445521</span>
+</div>
+<span class="material-symbols-outlined text-secondary">arrow_forward_ios</span>
+</a>
+</article>
+<!-- Publication Item 2 -->
+<article class="group">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-1.5 h-1.5 mt-2.5 rounded-full bg-surface-container-highest shrink-0"></div>
+<div class="space-y-1">
+<span class="font-headline uppercase text-[10px] tracking-[0.2em] text-secondary font-bold">Conference • 2023</span>
+<h2 class="font-headline text-xl font-bold leading-snug text-primary group-active:text-tertiary-fixed-dim transition-colors">Volumetric Data Visualization for Clinical Diagnostics</h2>
+</div>
+</div>
+<p class="text-secondary text-sm leading-relaxed mb-6 pl-5">A study on how 3D spatial mapping reduces cognitive load for radiologists compared to traditional 2D slices.</p>
+<div class="pl-5 flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container-high text-secondary text-[10px] font-bold uppercase rounded-full tracking-wider">Data Ethics</span>
+<span class="px-3 py-1 bg-surface-container-high text-secondary text-[10px] font-bold uppercase rounded-full tracking-wider">Clinical</span>
+</div>
+<a class="ml-5 flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 active:scale-[0.98] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">description</span>
+<span class="font-headline text-xs font-bold tracking-tight text-primary">DOI: 10.1016/j.visres.2023</span>
+</div>
+<span class="material-symbols-outlined text-secondary">arrow_forward_ios</span>
+</a>
+</article>
+<!-- Publication Item 3 -->
+<article class="group">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-1.5 h-1.5 mt-2.5 rounded-full bg-surface-container-highest shrink-0"></div>
+<div class="space-y-1">
+<span class="font-headline uppercase text-[10px] tracking-[0.2em] text-secondary font-bold">Preprint • 2024</span>
+<h2 class="font-headline text-xl font-bold leading-snug text-primary group-active:text-tertiary-fixed-dim transition-colors">Low-Latency Kinesthetic Feedback in Multi-User Environments</h2>
+</div>
+</div>
+<p class="text-secondary text-sm leading-relaxed mb-6 pl-5">Investigating synchronization protocols for collaborative medical training sessions in distributed networks.</p>
+<div class="pl-5 flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container-high text-secondary text-[10px] font-bold uppercase rounded-full tracking-wider">Networking</span>
+<span class="px-3 py-1 bg-surface-container-high text-secondary text-[10px] font-bold uppercase rounded-full tracking-wider">Haptics</span>
+</div>
+<a class="ml-5 flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 active:scale-[0.98] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">description</span>
+<span class="font-headline text-xs font-bold tracking-tight text-primary">DOI: 10.48550/arXiv.2401</span>
+</div>
+<span class="material-symbols-outlined text-secondary">arrow_forward_ios</span>
+</a>
+</article>
+</main>
+<!-- Navigation Shell (BottomNavBar for Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#F5FAFC]/90 backdrop-blur-xl border-none">
+<div class="max-w-[1440px] mx-auto px-6 py-3 flex justify-between items-center">
+<div class="flex flex-col items-center gap-1 flex-1 text-[#4E616A] transition-colors">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Inter'] text-[10px] uppercase font-medium">Research</span>
+</div>
+<div class="flex flex-col items-center gap-1 flex-1 text-[#4CD6FF] transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">book</span>
+<span class="font-['Inter'] text-[10px] uppercase font-medium">Archive</span>
+</div>
+<div class="flex flex-col items-center gap-1 flex-1 text-[#4E616A] transition-colors">
+<span class="material-symbols-outlined">science</span>
+<span class="font-['Inter'] text-[10px] uppercase font-medium">Labs</span>
+</div>
+<div class="flex flex-col items-center gap-1 flex-1 text-[#4E616A] transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-['Inter'] text-[10px] uppercase font-medium">Profile</span>
+</div>
+</div>
+</nav>
+<!-- Footer Section -->
+<footer class="w-full py-12 border-t border-[#EFF4F6] dark:border-[#1E202B] mb-20">
+<div class="max-w-[1440px] mx-auto px-8 flex flex-col items-start gap-6">
+<div class="flex flex-wrap gap-4">
+<a class="font-['Inter'] text-xs tracking-normal uppercase text-[#4E616A] hover:text-[#070913]" href="#">Privacy Protocol</a>
+<a class="font-['Inter'] text-xs tracking-normal uppercase text-[#4E616A] hover:text-[#070913]" href="#">Data Ethics</a>
+<a class="font-['Inter'] text-xs tracking-normal uppercase text-[#4E616A] hover:text-[#070913]" href="#">DOI Index</a>
+</div>
+<p class="font-['Inter'] text-xs tracking-normal uppercase text-[#4E616A] opacity-80">© 2024 Clinical Precisionist Research. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

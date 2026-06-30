@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Haptic Stimulator | Project Details | Research.Labs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#f5fafc",
+              "primary-fixed": "#e1e1f1",
+              "on-tertiary-container": "#0094b5",
+              "primary-container": "#1e202b",
+              "tertiary-fixed-dim": "#4cd6ff",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#eff4f6",
+              "surface-container-highest": "#dee3e5",
+              "surface-container": "#eaeff1",
+              "on-secondary-container": "#546770",
+              "background": "#f5fafc",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#868795",
+              "on-tertiary-fixed-variant": "#004e60",
+              "on-surface": "#171c1e",
+              "surface-variant": "#dee3e5",
+              "inverse-surface": "#2c3133",
+              "error": "#ba1a1a",
+              "secondary-container": "#d1e6f0",
+              "outline-variant": "#c7c5cc",
+              "secondary-fixed": "#d1e6f0",
+              "surface-tint": "#5c5e6a",
+              "on-primary-fixed-variant": "#444652",
+              "primary-fixed-dim": "#c5c5d4",
+              "on-primary": "#ffffff",
+              "tertiary": "#000b10",
+              "primary": "#070913",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed": "#001f28",
+              "surface": "#f5fafc",
+              "on-secondary-fixed": "#0a1e25",
+              "secondary": "#4e616a",
+              "surface-container-high": "#e4e9eb",
+              "on-surface-variant": "#46464c",
+              "outline": "#77767c",
+              "on-secondary-fixed-variant": "#374a51",
+              "on-background": "#171c1e",
+              "on-primary-fixed": "#191b26",
+              "tertiary-fixed": "#b7eaff",
+              "inverse-on-surface": "#ecf1f3",
+              "tertiary-container": "#00242e",
+              "secondary-fixed-dim": "#b5cad3",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#ffffff",
+              "inverse-primary": "#c5c5d4",
+              "error-container": "#ffdad6",
+              "surface-dim": "#d6dbdd"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .haptic-pulse {
+            box-shadow: 0 0 0 0 rgba(76, 214, 255, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 214, 255, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(76, 214, 255, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 214, 255, 0); }
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-tertiary-fixed-dim selection:text-primary">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-50 bg-[#F5FAFC]/80 dark:bg-[#070913]/80 backdrop-blur-xl shadow-[0_40px_40px_rgba(23,28,30,0.04)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-4">
+<div class="text-xl font-bold tracking-tighter text-[#070913] dark:text-[#F5FAFC] font-headline">
+                Research.Labs
+            </div>
+<div class="hidden md:flex items-center space-x-8 font-['Space_Grotesk'] tracking-tight font-medium">
+<a class="text-[#4E616A] dark:text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] transition-colors" href="#">Research</a>
+<a class="text-[#4CD6FF] border-b-2 border-[#4CD6FF] pb-1" href="#">Projects</a>
+<a class="text-[#4E616A] dark:text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] transition-colors" href="#">Publications</a>
+<a class="text-[#4E616A] dark:text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center space-x-6">
+<span class="material-symbols-outlined text-secondary hover:opacity-80 transition-opacity cursor-pointer">description</span>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-xl text-sm font-medium hover:opacity-80 transition-opacity">
+                    Contact
+                </button>
+</div>
+</div>
+<div class="bg-gradient-to-b from-[#eff4f6] to-transparent dark:from-[#1E202B] h-[1px]"></div>
+</nav>
+<main class="pt-24 pb-20">
+<div class="max-w-7xl mx-auto px-8">
+<!-- 1. Header with title and summary -->
+<div class="mb-12">
+<a class="inline-flex items-center text-secondary hover:text-primary transition-colors font-label text-sm uppercase tracking-widest group" href="#">
+<span class="material-symbols-outlined mr-2 transition-transform group-hover:-translate-x-1">arrow_back</span>
+                    Back to projects
+                </a>
+</div>
+<div class="grid grid-cols-12 gap-12 items-end mb-20">
+<div class="col-span-12 md:col-span-8">
+<div class="flex items-center space-x-3 mb-6">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim haptic-pulse"></div>
+<span class="font-label text-xs uppercase tracking-[0.2em] text-secondary">Ongoing Clinical Phase II</span>
+</div><div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 rounded-full border border-outline-variant text-[10px] uppercase tracking-wider text-secondary font-label">Haptics</span>
+<span class="px-3 py-1 rounded-full border border-outline-variant text-[10px] uppercase tracking-wider text-secondary font-label">Teleoperation</span>
+<span class="px-3 py-1 rounded-full border border-outline-variant text-[10px] uppercase tracking-wider text-secondary font-label">VR</span>
+<span class="px-3 py-1 rounded-full border border-outline-variant text-[10px] uppercase tracking-wider text-secondary font-label">Human-Robot Interaction</span>
+<span class="px-3 py-1 rounded-full border border-outline-variant text-[10px] uppercase tracking-wider text-secondary font-label">Wearables</span>
+<span class="px-3 py-1 rounded-full border border-outline-variant text-[10px] uppercase tracking-wider text-secondary font-label">Electrical Stimulation</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tight text-primary leading-[1.1]">
+                        Haptic Stimulator for <br/>Clinical Trials
+                    </h1>
+</div>
+<div class="col-span-12 md:col-span-4 pb-2">
+<p class="text-secondary leading-relaxed border-l-2 border-surface-container-highest pl-6 italic">
+                        "Bridging the sensory gap between virtual environments and therapeutic physical rehabilitation."
+                    </p>
+</div>
+</div>
+<!-- 2. Key Sections: Outcomes and My Role -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+<section class="bg-surface-container-low p-10 rounded-xl border border-outline-variant/10">
+<h2 class="font-headline text-2xl font-bold mb-6 text-primary flex items-center">
+<span class="material-symbols-outlined mr-3 text-tertiary-fixed-dim">analytics</span>
+                        Outcomes
+                    </h2>
+<div class="space-y-4"><div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mt-1">clinical_notes</span>
+<p class="text-secondary leading-relaxed">Independently implemented a home-based clinical trial workflow spanning IRB, recruitment, intervention delivery, and outcomes analysis.</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mt-1">vr_video</span>
+<p class="text-secondary leading-relaxed">Delivered Unity-based VR diagnostics and rehabilitation tools for veterans with TBI, integrating eye tracking and clinician-facing workflows.</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mt-1">verified_user</span>
+<p class="text-secondary leading-relaxed">Ensured full IRB-compliant protocols across all human-subject studies and VA-affiliated programs.</p>
+</div></div>
+</section>
+<section class="bg-primary text-on-primary p-10 rounded-xl">
+<h2 class="font-headline text-2xl font-bold mb-6 flex items-center">
+<span class="material-symbols-outlined mr-3 text-tertiary-fixed-dim">engineering</span>
+                        My Role
+                    </h2>
+<p class="text-on-primary-container leading-relaxed mb-6">As a Senior Research Engineer, I have spent 5+ years leading human-subject studies and VA-affiliated programs, specializing in the intersection of VR, haptics, and clinical research.</p>
+<ul class="space-y-4"><li class="flex items-start">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mr-3">check_circle</span>
+<span>Led the development of multi-modal systems involving Haptics, Teleoperation, and Wearables.</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mr-3">check_circle</span>
+<span>Architected low-latency feedback loops for real-time Human-Robot Interaction.</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mr-3">check_circle</span>
+<span>Spearheaded the integration of electrical stimulation and pneumatic actuation in clinical settings.</span>
+</li></ul>
+</section>
+</div>
+<!-- 3. Featured Media -->
+<section class="mb-20">
+<h2 class="font-headline text-sm uppercase tracking-widest text-secondary mb-8 text-center">Featured Media</h2>
+<div class="relative w-full aspect-video overflow-hidden rounded-xl bg-primary shadow-2xl group cursor-pointer">
+<img alt="High-tech haptic medical research device" class="w-full h-full object-cover opacity-60 mix-blend-overlay group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-WGG5OBDlC2IMYAHNNXxrjhGr-FTSr23gMggA-hRmu2lrq9l7OXDvb8-Fjbwyb2NgxF_Qrol7P-wcFzHeNW5gKE0t9_8UPjfpJ5g0TSRE_60_qNg2lIQm0qmw4e16Ei2GzR1YNay6Fu4mVsS24kNJnTcIkGtYa0YotzYJ9RBg6lKWjajRc--c3Y5WC-3f4wiTpsJx3JnNF5VT5tZqp3CBONZRkYrENeQTDUK5wnJTmw_xr2YCn8Nb3gYxzaYzRx2rdFVcJmnYYgw"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 rounded-full bg-tertiary-fixed-dim/90 flex items-center justify-center text-primary transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl fill-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-center text-on-primary">
+<span class="font-label text-xs uppercase tracking-widest bg-primary/40 backdrop-blur-md px-3 py-1 rounded">System Overview: Phase II Demo</span>
+<span class="font-label text-xs">04:22</span>
+</div>
+</div>
+</section>
+<!-- 4. Gallery -->
+<section class="mb-32">
+<h2 class="font-headline text-2xl font-bold mb-10 text-primary">Technical Gallery</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden group">
+<img alt="Hardware Detail 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_z9e2_pnTvSFspVde1kP1cDZX7AcCtflnxGaS6pqLdcO79Agvg5JiHfZ8xfx8uDU95OM9IPoR3r9uPuSqHxuni6a2Md-Dt1koiS1TUNjhjvp8X1LiNvMAqal4BPpv_u-dddKx9Sz7tW0vVbjBZJkp2-9qQ2hlZ8xrmOJhYdYdiEh3ZHXt9QsGwQiDoC7za3qj_Np2Cn5CDbC733Fm06LaAxyWrCyX9lqyDYbvkC_wANfizVRoPZevynt0ayhw9xYls2IX0Oa5_1U"/>
+</div>
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden group">
+<img alt="Lab Testing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcbloP2LeB8T-KeImALEZYp_HuzygemtZFUeDrTcB-FGeaqSMI2rCCKSfepzO-tdqldGTxWnuuSfxp4SxLgfzfT3H4CERjdRv5ir50_rDlTdz-FcEHn09a1-e2RZmuaAiidqqepumzMWgj5hQ9v8mHnTHk7PzPSp6R_K59RL3ySHyJyGy1avW6f1TCLMT9mc547tkH2wanMR4FuJ7n9_a-GB7UqKOIICA0Qn1QDAiIzpwUcmkCIas6pkR-MIlqsTTFt4Ziht8_ZH0"/>
+</div>
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden group">
+<img alt="Data Visualization" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqORPs8wQxCCBRQtidn9aWokR0R_fb1R7D0d2gMMlqNIR8KUvNxdmR_Efx795cLysWiE4n73IohrMuvc_L88rEgY3PkoXsxWUUhM3po8gk1mGfdwyoWo-Aw11QJuUrCsZPwxNoDSmemMrxkkD3xqvOiY0CgTgAa-wBH5qMhBhjGKw7TNReddgsrGjOOPscRF7TFYpLkDmFA4qrd8qMbVXIt5qnKRiCv9tjd6jLjnqhO-kyBtfWey6xx7RY4W25jGhnlUTnsIyt3rs"/>
+</div>
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden group">
+<img alt="Electronic Circuitry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6vu08B0LAQfTFoW7H_1ANm2htJHc8n4_mdATWWpNFVU-UzBg5CBQg51NH0eAKeqbKgGN1IHYqr6oEtemMq5aDLcFJq44AauBrFKQCIKH9PaTMaMsV9EX7L-P7jdEVNUINaJAtl0TZwl7AYoGvrxoXEUGSJvxwChhjdyw0hPbGUsxAOb0TVbrIckjnEhuvnFHYX-1dnp6hV4FRLbRoIJQvY7erIj_8bAaHSc4F4Os7mw7Td2afrHycKxwisZiHDhZ_6Lj7cn21bIU"/>
+</div>
+</div>
+</section>
+<!-- 5. Related Projects -->
+<section class="border-t border-surface-container-highest pt-20">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline text-3xl font-bold text-primary mb-2">Related Research</h2>
+<p class="text-secondary">Parallel investigations into sensory feedback and neuromotor recovery.</p>
+</div>
+<a class="text-tertiary-fixed-dim font-headline font-bold flex items-center hover:underline" href="#">
+                        View all projects <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Project Card 1 -->
+<a class="group block" href="#">
+<div class="aspect-[4/3] rounded-xl bg-surface-container overflow-hidden mb-6">
+<img alt="Biometric project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4qoVECcsnxDWa65Y1ulGbpZdYsJ08OeN3EIHH14eSp4ZQRBLDiNvNCQC7VsxxrykTMkMp0F1WdY6QFltQ6V26t2hAIQY3v2Xf0guc4Vl3EmM7VvoCy-4GZ3C6ThewnAeZloHM6zLSUC_ovqJrbVv42MOCrT7xV8F0LA3zb42K8Q3R5G6nr224nAtmDuPZJFDYDTBN0eLkcvFGmMmxDCdohad4rm1eM-0DCmz2T60a2TdKp5B6t2oqHqCaMLsvesVx5oKtMryln58"/>
+</div>
+<p class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed-dim mb-2">Systems Engineering</p>
+<h3 class="font-headline text-xl font-bold text-primary group-hover:text-tertiary-fixed-dim transition-colors mb-3">Biometric Feedback Loop</h3>
+<p class="text-secondary text-sm leading-relaxed line-clamp-2">Optimizing real-time physiological data processing for adaptive rehabilitation suites.</p>
+</a>
+<!-- Project Card 2 -->
+<a class="group block" href="#">
+<div class="aspect-[4/3] rounded-xl bg-surface-container overflow-hidden mb-6">
+<img alt="AI Research" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1e_jesAZBf2j8dX1pIURjzVDcKMNaaG-0lbpQWBbx59jSLWJ7cJKC_2UocedsRanXl9SskYK0KjtEnWixtg0U7XxP9fBJUmJdd8O4JWcEXPk4qC7oKIkILvDnCrbaxssLluu66i3G2Q3oEMaXs53Oq7E3uPj6Hlnx8PLjg77_UCIr9Ijuh3pBoef1C4kE7Gn4DsoD6nrBWJIj-3951OGjeRwAzLwHuCKFLjsOV2ZZvqFxWXvN6eCHa19bF6wFMKTOJokuIgOFqNc"/>
+</div>
+<p class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed-dim mb-2">Cognitive Science</p>
+<h3 class="font-headline text-xl font-bold text-primary group-hover:text-tertiary-fixed-dim transition-colors mb-3">Neural Mapping Interface</h3>
+<p class="text-secondary text-sm leading-relaxed line-clamp-2">Using non-invasive EEG arrays to map sensory cortical responses in haptic environments.</p>
+</a>
+<!-- Project Card 3 -->
+<a class="group block" href="#">
+<div class="aspect-[4/3] rounded-xl bg-surface-container overflow-hidden mb-6">
+<img alt="Robotics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqFTxDVFrTFq8DzmcN80Y7-gR9J_iUrNDYU7qf0qJ3ziuNM7YDo9Bite1r68KekxqkxbqHpBYG5QLv0R0m5xT8vKNTof0PlwE5bEfc60pYr2yohJhV7nLFCqyASOblAqY6EJ0I-F6WXNz4REKB8-r584W2ljza1d-qtB0EC5uYfOUNvwyXc2Xny_EHuVfENF2X74PXOUOKoxLp6qPvG797t9aFXiu7abJGEhDL-jF40TX3dO809oiQlAPDcH__kDW260WgEyiHyyU"/>
+</div>
+<p class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed-dim mb-2">Robotics</p>
+<h3 class="font-headline text-xl font-bold text-primary group-hover:text-tertiary-fixed-dim transition-colors mb-3">Soft Actuator Assembly</h3>
+<p class="text-secondary text-sm leading-relaxed line-clamp-2">Development of fluid-driven soft robotic skins for anthropomorphic tactile simulation.</p>
+</a>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-[#eff4f6] dark:bg-[#070913]">
+<div class="bg-gradient-to-r from-transparent via-[#4E616A]/20 to-transparent h-[1px]"></div>
+<div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+<div class="font-['Space_Grotesk'] text-[#070913] dark:text-[#F5FAFC] text-lg font-bold mb-6 md:mb-0">
+                Research.Labs
+            </div>
+<div class="font-['Inter'] text-xs font-light tracking-wide text-[#4E616A] mb-6 md:mb-0">
+                © 2024 Clinical Precisionist Research. All rights reserved.
+            </div>
+<div class="flex space-x-8 font-['Inter'] text-xs font-light tracking-wide text-[#4E616A]">
+<a class="hover:text-[#070913] dark:hover:text-[#F5FAFC] transition-all duration-500 hover:underline decoration-[#4CD6FF] underline-offset-4" href="#">LinkedIn</a>
+<a class="hover:text-[#070913] dark:hover:text-[#F5FAFC] transition-all duration-500 hover:underline decoration-[#4CD6FF] underline-offset-4" href="#">Email</a>
+<a class="hover:text-[#070913] dark:hover:text-[#F5FAFC] transition-all duration-500 hover:underline decoration-[#4CD6FF] underline-offset-4" href="#">Curriculum Vitae</a>
+</div>
+</div>
+</footer>
+</body></html>

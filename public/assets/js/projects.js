@@ -20,6 +20,20 @@ function dataURL(filename) {
   return './assets/data/' + filename;
 }
 
+const IMG_BASE_URL = (() => {
+  try {
+    if (document.currentScript && document.currentScript.src) return new URL('../img/', document.currentScript.src);
+  } catch (_) {
+    // ignore
+  }
+  return null;
+})();
+
+function imageURL(filename) {
+  if (IMG_BASE_URL) return new URL(filename, IMG_BASE_URL).toString();
+  return './assets/img/' + filename;
+}
+
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
@@ -40,21 +54,32 @@ function uniqSorted(arr) {
   return Array.from(new Set(arr.filter(Boolean))).sort((a, b) => a.localeCompare(b));
 }
 
+function isWorkArchivePath(pathname) {
+  const p = String(pathname || '').replace(/\/+$/, '');
+  return p.endsWith('/work') || p.endsWith('/work/index.html');
+}
+
 function projectHref(slug) {
+  if (isWorkArchivePath(window.location.pathname)) return './' + encodeURIComponent(slug) + '/';
   return './work/' + encodeURIComponent(slug) + '/';
 }
 
 function renderProjectCard(p) {
   const card = el('a', { class: 'proj reveal', href: projectHref(p.slug) });
 
-  const media = el('div', { class: 'proj-media' }, [
-    el('img', {
-      src: './assets/img/' + p.image,
-      alt: p.title,
-      loading: 'lazy',
-      decoding: 'async'
-    })
-  ]);
+  if (p.image) {
+    const media = el('div', { class: 'proj-media' }, [
+      el('img', {
+        src: imageURL(p.image),
+        alt: p.title,
+        loading: 'lazy',
+        decoding: 'async'
+      })
+    ]);
+    card.appendChild(media);
+  } else {
+    card.classList.add('proj-no-media');
+  }
 
   const tags = (p.tags || []).slice(0, 2).join(' • ');
   const metaLeft = tags ? el('span', { class: 'mini', text: tags }) : el('span', { class: 'mini', text: 'Project' });
@@ -70,7 +95,6 @@ function renderProjectCard(p) {
     ])
   ]);
 
-  card.appendChild(media);
   card.appendChild(body);
   return card;
 }
@@ -136,12 +160,17 @@ function applyUI(site, projects) {
 
   const mosaic = document.querySelector('[data-mosaic]');
   if (mosaic) {
-    const pics = featured.slice(0, 3);
+    const pics = featured.filter((p) => p.image).slice(0, 3);
     const tiles = mosaic.querySelectorAll('img[data-mosaic-img]');
     for (let i = 0; i < tiles.length; i++) {
       const p = pics[i];
-      if (!p) continue;
-      tiles[i].setAttribute('src', './assets/img/' + p.image);
+      const tile = tiles[i].closest('.tile');
+      if (!p) {
+        if (tile) tile.hidden = true;
+        continue;
+      }
+      if (tile) tile.hidden = false;
+      tiles[i].setAttribute('src', imageURL(p.image));
       tiles[i].setAttribute('alt', p.title);
     }
   }
@@ -163,9 +192,15 @@ function filterProjects(projects, activeTag, query) {
 }
 
 function sortProjects(projects) {
+  function sortYear(p) {
+    const years = String(p.year || '').match(/\d{4}/g);
+    if (!years || !years.length) return 0;
+    return Math.max(...years.map(Number));
+  }
+
   return [...projects].sort((a, b) => {
-    const ya = Number(a.year || 0);
-    const yb = Number(b.year || 0);
+    const ya = sortYear(a);
+    const yb = sortYear(b);
     if (ya !== yb) return yb - ya;
     return String(a.title || '').localeCompare(String(b.title || ''));
   });

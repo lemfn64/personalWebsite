@@ -49,6 +49,18 @@ function setAttr(sel, name, value) {
   node.setAttribute(name, value);
 }
 
+function setWorkBodyClass() {
+  if (!document.body) return;
+  document.body.classList.add('page-work-detail');
+}
+
+function ensureBackLink() {
+  const head = document.querySelector('.work-head');
+  if (!head) return;
+  if (head.querySelector('.work-back')) return;
+  head.insertBefore(el('a', { class: 'work-back', href: '../', text: 'Back to projects' }), head.firstChild);
+}
+
 function setFacts(p) {
   const wrap = document.querySelector('[data-facts]');
   if (!wrap) return;
@@ -104,6 +116,51 @@ function setLinks(p) {
     row.appendChild(el('a', { class: 'chiplink', href: l.url, target: '_blank', rel: 'noreferrer', text: l.label }));
   }
   wrap.appendChild(row);
+}
+
+function setRoleSection(p) {
+  const grid = document.querySelector('.work-grid');
+  if (!grid) return;
+
+  let section = document.querySelector('[data-role-section]');
+  if (!section) {
+    section = el('section', { class: 'card work-section work-role reveal', 'data-role-section': 'true' }, [
+      el('h2', { text: 'My Role' }),
+      el('div', { 'data-role-content': 'true' })
+    ]);
+    const first = grid.querySelector('section');
+    if (first && first.nextSibling) grid.insertBefore(section, first.nextSibling);
+    else grid.appendChild(section);
+  }
+
+  const wrap = section.querySelector('[data-role-content]');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+
+  const role = String(p.role || '').trim();
+  const orgs = (p.orgs || []).filter(Boolean);
+
+  if (!role && !orgs.length) {
+    section.hidden = true;
+    return;
+  }
+
+  section.hidden = false;
+
+  if (role) wrap.appendChild(el('p', { class: 'role-copy', text: role }));
+  if (orgs.length) wrap.appendChild(el('p', { class: 'role-meta', text: orgs.join(', ') }));
+}
+
+function markWorkSections() {
+  const outcomesSection = document.querySelector('[data-outcomes]') ? document.querySelector('[data-outcomes]').closest('section') : null;
+  const videoSection = document.querySelector('[data-video]') ? document.querySelector('[data-video]').closest('section') : null;
+  const gallerySection = document.querySelector('[data-gallery]') ? document.querySelector('[data-gallery]').closest('section') : null;
+  const linksSection = document.querySelector('[data-links]') ? document.querySelector('[data-links]').closest('section') : null;
+
+  if (outcomesSection) outcomesSection.classList.add('work-outcomes');
+  if (videoSection) videoSection.classList.add('work-media');
+  if (gallerySection) gallerySection.classList.add('work-gallery');
+  if (linksSection) linksSection.classList.add('work-links');
 }
 
 function prefersReducedMotion() {
@@ -423,6 +480,11 @@ function setBanner(p) {
   const slot = heroImg.closest('.gitem');
   if (!slot) return;
 
+  if (!p.youtubeId && !getSlides(p).length) {
+    slot.remove();
+    return;
+  }
+
   const banner = el('div', { class: 'banner' });
   if (p.youtubeId) {
     banner.appendChild(renderYouTubeEmbed(p.youtubeId, { loading: 'lazy', title: (p.title || 'Project') + ' video' }));
@@ -456,6 +518,7 @@ function cleanupWorkSpacers() {
 
 function setWorkLayout(p) {
   cleanupWorkSpacers();
+  markWorkSections();
 
   const grid = document.querySelector('.work-grid');
   const videoWrap = document.querySelector('[data-video]');
@@ -466,7 +529,12 @@ function setWorkLayout(p) {
   const gallerySection = galleryWrap ? galleryWrap.closest('section') : null;
   const linksSection = linksWrap ? linksWrap.closest('section') : null;
 
-  if (p.youtubeId) {
+  const hasMedia = Boolean(p.youtubeId) || getSlides(p).length > 0;
+
+  if (!hasMedia) {
+    if (videoSection) videoSection.hidden = true;
+    if (gallerySection) gallerySection.hidden = true;
+  } else if (p.youtubeId) {
     if (videoSection) videoSection.hidden = true;
     if (gallerySection) gallerySection.hidden = false;
     if (linksSection && gallerySection) linksSection.insertAdjacentElement('afterend', gallerySection);
@@ -514,9 +582,14 @@ function renderRelated(all, current) {
   const grid = el('div', { class: 'grid' });
   for (const p of candidates) {
     const a = el('a', { class: 'proj reveal', href: '../' + encodeURIComponent(p.slug) + '/' });
-    const media = el('div', { class: 'proj-media' }, [
-      el('img', { src: '../../assets/img/' + p.image, alt: p.title, loading: 'lazy', decoding: 'async' })
-    ]);
+    if (p.image) {
+      const media = el('div', { class: 'proj-media' }, [
+        el('img', { src: '../../assets/img/' + p.image, alt: p.title, loading: 'lazy', decoding: 'async' })
+      ]);
+      a.appendChild(media);
+    } else {
+      a.classList.add('proj-no-media');
+    }
     const body = el('div', { class: 'proj-body' }, [
       el('div', {}, [
         el('h3', { class: 'proj-title', text: p.title }),
@@ -527,7 +600,6 @@ function renderRelated(all, current) {
         el('span', { text: p.year ? String(p.year) : '' })
       ])
     ]);
-    a.appendChild(media);
     a.appendChild(body);
     grid.appendChild(a);
   }
@@ -537,6 +609,9 @@ function renderRelated(all, current) {
 document.addEventListener('DOMContentLoaded', async () => {
   const slug = getSlugFromPathname(window.location.pathname);
   if (!slug) return;
+
+  setWorkBodyClass();
+  ensureBackLink();
 
   try {
     const data = await loadJSON(dataURL('projects.json'));
@@ -549,15 +624,18 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
 
-    document.title = p.title + ' — Luis Mesias';
+    document.title = p.title + ' — Luis Mesias, PhD';
 
     setText('[data-title]', p.title);
     setText('[data-impact]', p.impact || '');
     setFacts(p);
     setTags(p);
+    setRoleSection(p);
 
-    setAttr('[data-hero-img]', 'src', imgPath(p.image));
-    setAttr('[data-hero-img]', 'alt', p.title);
+    if (p.image) {
+      setAttr('[data-hero-img]', 'src', imgPath(p.image));
+      setAttr('[data-hero-img]', 'alt', p.title);
+    }
 
     setOutcomes(p);
     setVideoSection(p.youtubeId);

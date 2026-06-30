@@ -1,0 +1,44 @@
+{
+  "project": {
+    "title": "Desktop Project Details",
+    "id": "6370751422530906084"
+  },
+  "screen": {
+    "title": "Unified Mobile Portfolio Home (v2)",
+    "id": "da61c5c66a7146a3a631ca505f6e4dcf",
+    "deviceType": "MOBILE",
+    "width": 780,
+    "height": 7290,
+    "screenshot": {
+      "downloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0ujweHf5KhU-XTCo6mQZcrA2pWa00mDolrM1w2TAaaaj1HxFgDleK7OjmWkVEqDREdp7PJ-ccnuXvvexzpDOct4AiY9gcmzqxHCwdK2fYXO1X1xsLQm-bq9zf9c08T6jYKiGP9M2YvYEZcU5N915mNO4t00GqZrj6hYrPJdcTIs8fJrCWD53NPoWs_YmYRqqKOQ4zgxIBdx1-v8ojMkXUFMCGvis7h46xwaDRXoKYoL2ktuDR_l4qXtJdkw=s0",
+      "file": "screenshot.png"
+    },
+    "screenshotThumb": {
+      "downloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0ujweHf5KhU-XTCo6mQZcrA2pWa00mDolrM1w2TAaaaj1HxFgDleK7OjmWkVEqDREdp7PJ-ccnuXvvexzpDOct4AiY9gcmzqxHCwdK2fYXO1X1xsLQm-bq9zf9c08T6jYKiGP9M2YvYEZcU5N915mNO4t00GqZrj6hYrPJdcTIs8fJrCWD53NPoWs_YmYRqqKOQ4zgxIBdx1-v8ojMkXUFMCGvis7h46xwaDRXoKYoL2ktuDR_l4qXtJdkw",
+      "file": "screenshot-thumb.png"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2MwZGQxOGNlZDJiZTQyYmRiNWVmMDA4M2QwYmExYWFjEgsSBxDUyayXyxoYAZIBIwoKcHJvamVjdF9pZBIVQhM2MzcwNzUxNDIyNTMwOTA2MDg0&filename=&opi=89354086",
+      "mimeType": "text/html",
+      "file": "screen.html"
+    },
+    "referencedImages": [
+      {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuCbS4GVNTDQzxHAjq4fNLZoHoL-FSQ9ScQAHZrB3w5AvVi4Oyfd5SM85gWMLBUVMsW0pJGOjb5VXbsjh117CLL8SPrsrePci5kSEe2EDBbUsJR-cMZAZ365IszCfmR3OEUNFF8B_YBfo9gODbWEVWhpNKpGbzMHfeyChiSnN_THhaj50x0oUD0Rc8-utGJu9q-a3ma5_x9umhKLgSwfrn2waWsMpdPTHZKnN4HvfDxev65mRLG2khSbVgJL0si4kWc2Ec6xa5KHPmk",
+        "file": "images/advanced-clinical-research-setup.png"
+      },
+      {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuCQO0Lm2iM4Repjjw-4eM9uwtj5cKyO3KkuvOCg4V4WH0Uj-qDAXUqzNiFCUp5c7y70LINu4WU_uwY-0644AE1F1BZMUqUqUDX6WpDKifwA_6FxpJ5Ou5eE4dXgHfIq_zWeNjYesW-u8ZEppHz25GuZejx-buQcg4ecDqswhYJc7PA52eH2Y4jUSTZTFQ5wLFZ7c5Fcz01gY8rS3RiySu6c_hVEtxnf5_VFDLimSpxxVk2Af-FXcOftfVhDOCjLzlYCEkg9bfc3Ylk",
+        "file": "images/synctouch-surgical-interface.png"
+      },
+      {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuB7DqJ7Vmx_HryeGtDdWYrCb5bbjAhaBNiP5eNENFp5NY3IEmUL1rU0MLWip87TG4_7U41efKoABgzMvjaEXPzKS3zz5y0xgWk2Acao2aq7PyNDo46icQrZL4aedbqEik1IXbOfN9_NiRUsNqgvWXnMV4mIYquZc5rn_xeZahNce6gWiB4nAkDexR9lrW6b96GN0Ha6q-SMrsIFUBTNOg3zaEoxgAAW0YYTTYae35l-HbDc_a6NgxcOdhYQF-eq-YPXP-cWF6ZP8c0",
+        "file": "images/neural-link-interface.png"
+      },
+      {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuCnN00joJSdtUi_aIFECGTjcS_oPGW9bU0h9GZ0YQDTub-tB214EvofzYh4XzB7qaDLi3n5eWJUsJlMonreqJRS8bBjPLTil9uWsO9FUL7kx420WlSytL56h11wMh3TyT-GywlYi0ltRJnO1kvuZmf7Lfy0sfZIDMticu8jJmmEAX_-znj57rybCDfbHt4phsap9QdTK6kQ0gIqMQ8Y1h8785yy16hvrhZ0RLeqEVSLwgZP2d02MbOcofMu20Tcb-RcWFWV35hO_EI",
+        "file": "images/engineer-working-on-circuit-board.png"
+      }
+    ]
+  }
+}

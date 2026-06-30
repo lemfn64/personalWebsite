@@ -48,6 +48,84 @@
       ]
     },
     {
+      "slug": "wearable-stimulation-system-wss",
+      "title": "Wearable Stimulation System (WSS) - COSMIIC Ecosystem",
+      "impact": "Architected the open-source WSS software stack for modular functional electrical stimulation hardware, enabling C#, Python, Unity, and ROS 2 applications to control devices through reusable APIs and documentation.",
+      "year": "Aug 2025-May 2026",
+      "featured": true,
+      "tags": [
+        "Open source",
+        "Research software",
+        "Neurotechnology",
+        "Functional electrical stimulation",
+        "Hardware/software integration",
+        "Unity",
+        "Python",
+        "ROS 2"
+      ],
+      "role": "Lead software architect and developer / principal contributor. Open-source release and actively maintained research software within the COSMIIC neurotechnology ecosystem.",
+      "orgs": [
+        "COSMIIC ecosystem",
+        "Case Western Reserve University",
+        "Human Fusions Institute"
+      ],
+      "youtubeId": "",
+      "outcomes": [
+        "Architected and implemented the WSS software stack above the embedded firmware layer.",
+        "Built reusable C#, Python, Unity, and ROS 2 integration paths.",
+        "Developed stimulation control, transport abstraction, protocol framing, device state handling, setup sequencing, and streaming control.",
+        "Implemented serial/test transports, SLIP-like framing, checksums, device addressing, command generation, schedule/event control, and streaming stimulation updates.",
+        "Created developer-facing documentation and API reference infrastructure.",
+        "Provided documentation that links to the relevant GitHub repositories."
+      ],
+      "gallery": [],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://wss.cosmiic.org"
+        },
+        {
+          "label": "COSMIIC",
+          "url": "https://cosmiic.org"
+        }
+      ]
+    },
+    {
+      "slug": "vrcade-home-therapy-app",
+      "title": "VRcade Home Therapy App",
+      "impact": "Developed and maintained a Meta Quest home-therapy workflow for a pilot home trial with veterans with TBI, supporting remote deployment, secure data exchange, participant classification, and adaptive therapy scheduling.",
+      "year": "Oct 2023-Present",
+      "featured": true,
+      "tags": [
+        "TBI",
+        "Veterans",
+        "Home trial",
+        "Rehabilitation",
+        "VR",
+        "Clinical research",
+        "Unity",
+        "Meta Quest"
+      ],
+      "role": "Research engineer / technical contributor responsible for supporting the home-deployment workflow, participant classification tooling, secure data workflows, remote configuration, performance logging, and IRB-compliant data collection. The project supports veterans with traumatic brain injury through a pilot home trial and ongoing clinical research workflow.",
+      "orgs": [
+        "Case Western Reserve University",
+        "VA Northeast Ohio Healthcare System",
+        "Interfaces and Interventions Lab",
+        "XRtistry"
+      ],
+      "youtubeId": "",
+      "outcomes": [
+        "Partnered with XRtistry to translate research-grade VR applications into take-home-ready participant experiences.",
+        "Built participant intake classification tooling to support home-based VR therapy eligibility.",
+        "Improved the Meta Quest home-therapy workflow for participant use outside the lab.",
+        "Integrated secure remote data loading and unloading through Box.",
+        "Enabled remote modification of training schedules and task difficulty.",
+        "Supported performance logging and IRB-compliant participant-data workflows."
+      ],
+      "gallery": [],
+      "links": []
+    },
+    {
       "slug": "artificial-touch-feedback-through-skin-surface-electrical-stimulation-for-vr-applications-44xgk",
       "title": "Artificial Touch Feedback Through Skin-surface Electrical Stimulation for VR Applications",
       "impact": "Electrical stimulation feedback mapped to VR interactions for more informative touch.",

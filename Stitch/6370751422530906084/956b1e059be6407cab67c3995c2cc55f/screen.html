@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#f5fafc",
+              "primary-fixed": "#e1e1f1",
+              "on-tertiary-container": "#0094b5",
+              "primary-container": "#1e202b",
+              "tertiary-fixed-dim": "#4cd6ff",
+              "surface-container-low": "#eff4f6",
+              "on-error-container": "#93000a",
+              "surface-container": "#eaeff1",
+              "surface-container-highest": "#dee3e5",
+              "on-secondary-container": "#546770",
+              "on-secondary": "#ffffff",
+              "background": "#f5fafc",
+              "on-surface": "#171c1e",
+              "on-primary-container": "#868795",
+              "on-tertiary-fixed-variant": "#004e60",
+              "secondary-container": "#d1e6f0",
+              "error": "#ba1a1a",
+              "surface-variant": "#dee3e5",
+              "inverse-surface": "#2c3133",
+              "outline-variant": "#c7c5cc",
+              "primary-fixed-dim": "#c5c5d4",
+              "on-primary": "#ffffff",
+              "surface-tint": "#5c5e6a",
+              "secondary-fixed": "#d1e6f0",
+              "on-primary-fixed-variant": "#444652",
+              "tertiary": "#000b10",
+              "primary": "#070913",
+              "on-tertiary-fixed": "#001f28",
+              "on-tertiary": "#ffffff",
+              "surface": "#f5fafc",
+              "secondary": "#4e616a",
+              "on-secondary-fixed": "#0a1e25",
+              "outline": "#77767c",
+              "on-secondary-fixed-variant": "#374a51",
+              "on-background": "#171c1e",
+              "surface-container-high": "#e4e9eb",
+              "on-surface-variant": "#46464c",
+              "tertiary-container": "#00242e",
+              "secondary-fixed-dim": "#b5cad3",
+              "inverse-on-surface": "#ecf1f3",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#b7eaff",
+              "on-primary-fixed": "#191b26",
+              "surface-dim": "#d6dbdd",
+              "inverse-primary": "#c5c5d4",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(245, 250, 252, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-tertiary-fixed-dim selection:text-primary">
+<!-- Top Navigation Anchor -->
+<header class="w-full sticky top-0 z-50 bg-[#F5FAFC] dark:bg-[#070913]">
+<nav class="flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter text-[#070913] dark:text-[#F5FAFC] font-['Space_Grotesk']">Research Publications</span>
+<div class="hidden md:flex gap-6">
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] transition-colors" href="#">Research</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-[#4CD6FF] border-b-2 border-[#4CD6FF] pb-1" href="#">Publications</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] transition-colors" href="#">Labs</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] transition-colors" href="#">Archive</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 duration-300 ease-in-out hover:scale-[1.02] hover:bg-[#EFF4F6] dark:hover:bg-[#1E202B] rounded-lg transition-all">
+<span class="material-symbols-outlined text-[#070913] dark:text-[#F5FAFC]">account_circle</span>
+</button>
+</div>
+</nav>
+<div class="bg-[#EFF4F6] dark:bg-[#1E202B] h-[1px] w-full"></div>
+</header>
+<div class="flex max-w-[1440px] mx-auto">
+<!-- Side Navigation Anchor -->
+<aside class="hidden lg:flex flex-col gap-y-2 py-8 pr-4 h-screen w-64 bg-[#F5FAFC] dark:bg-[#070913] sticky top-16">
+<div class="px-6 mb-8">
+<span class="font-['Space_Grotesk'] uppercase text-xs tracking-[0.2em] text-[#4E616A]">Filter Archive</span>
+<h3 class="text-[#070913] dark:text-[#F5FAFC] font-['Inter'] text-sm tracking-wide mt-1 font-semibold">Precision Indexing</h3>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-6 py-3 bg-[#1E202B] dark:bg-[#F5FAFC] text-[#F5FAFC] dark:text-[#070913] rounded-r-full font-medium transition-all duration-200 ease-linear active:scale-95 font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">list</span>
+<span>All Types</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#4E616A] hover:bg-[#EFF4F6] dark:hover:bg-[#1E202B] rounded-r-full transition-all duration-200 ease-linear active:scale-95 font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span>Conferences</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#4E616A] hover:bg-[#EFF4F6] dark:hover:bg-[#1E202B] rounded-r-full transition-all duration-200 ease-linear active:scale-95 font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">book</span>
+<span>Journals</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#4E616A] hover:bg-[#EFF4F6] dark:hover:bg-[#1E202B] rounded-r-full transition-all duration-200 ease-linear active:scale-95 font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">mic_external_on</span>
+<span>Workshops</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#4E616A] hover:bg-[#EFF4F6] dark:hover:bg-[#1E202B] rounded-r-full transition-all duration-200 ease-linear active:scale-95 font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Preprints</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 min-h-screen px-8 py-12 lg:px-16">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="text-6xl font-headline font-bold tracking-tighter text-primary mb-4">Publications</h1>
+<p class="text-secondary font-body body-lg max-w-2xl leading-relaxed">
+                    Citation-style list for quick scanning. Our research focuses on the intersection of tactile engineering and digital immersion.
+                </p>
+</header>
+<!-- Interactive Filters & Search -->
+<section class="mb-16 space-y-8">
+<div class="relative max-w-4xl">
+<input class="w-full bg-surface-container-low border-none focus:ring-0 text-primary py-4 pl-12 pr-6 rounded-xl transition-all placeholder:text-secondary/50 focus:bg-surface-container" placeholder="Search by paper title, author, or keyword..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-secondary">search</span>
+</div>
+<div class="flex flex-wrap items-center gap-8">
+<div class="flex gap-2">
+<span class="px-4 py-1.5 bg-primary text-on-primary rounded-full text-xs font-bold font-headline uppercase tracking-widest cursor-pointer">All Years</span>
+<span class="px-4 py-1.5 bg-surface-container-high text-secondary rounded-full text-xs font-bold font-headline uppercase tracking-widest hover:bg-surface-container-highest transition-colors cursor-pointer">2024</span>
+<span class="px-4 py-1.5 bg-surface-container-high text-secondary rounded-full text-xs font-bold font-headline uppercase tracking-widest hover:bg-surface-container-highest transition-colors cursor-pointer">2023</span>
+<span class="px-4 py-1.5 bg-surface-container-high text-secondary rounded-full text-xs font-bold font-headline uppercase tracking-widest hover:bg-surface-container-highest transition-colors cursor-pointer">2022</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/30 hidden sm:block"></div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 text-xs font-bold font-headline uppercase tracking-widest text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span> Sort By Relevance
+                        </button>
+</div>
+</div>
+</section>
+<!-- Publication List (Asymmetric Layout) -->
+<div class="space-y-12">
+<!-- Entry 01 -->
+<article class="group relative grid md:grid-cols-[1fr_2fr] gap-8 items-start">
+<div class="space-y-4 pt-1">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim inline-block"></span>
+<span class="text-xs font-headline font-bold uppercase tracking-[0.2em] text-secondary">Journal · 2024</span>
+</div>
+<div class="aspect-[4/3] bg-surface-container-low rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Haptic research device" class="w-full h-full object-cover" data-alt="Advanced haptic interface device for precision research" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaFel4Cq_KEFTrlRztGrK9zF_zGpsdPYlCaGEnX8hZ9BN7EmsxF0TC_2yOevFoL39kaC7yj01IvEIn-hAv4dCUNjD68uIxVYHLoXO6REJhWRbZebRy1MZYFN8aaClEMfu_uSGrc5v4ao2koEO20UiJGHPuJJdsabABDHA10qQ1amditfIPPVwUFty1NSJiWVJxv2rn4lOt_bUiXFQET8-RG8fP1JSbtFds3diF3pL_8QJYygaTBTt1Uwrp9QiGOWKddzkue3JkYjo"/>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-none hover:shadow-[0_40px_40px_-20px_rgba(23,28,30,0.04)] transition-all duration-500 border border-outline-variant/5">
+<h2 class="text-2xl font-headline font-bold tracking-tight text-[#4CD6FF] mb-3 group-hover:underline decoration-2 underline-offset-4 cursor-pointer">
+                            Haptic Precision in Minimally Invasive Surgery: A Longitudinal VR Study
+                        </h2>
+<p class="text-primary font-medium mb-2 font-body text-sm">
+                            Dr. Elias Vance, Sarah Jenkins, Michael Chen, et al.
+                        </p>
+<p class="text-secondary italic mb-4 font-body text-sm">
+                            Clinical Precisionist Journal, Vol. 14, Issue 2.
+                        </p>
+<p class="text-secondary font-body leading-relaxed mb-8">
+                            This paper examines the correlation between haptic feedback resolution and surgical precision in virtual environments, demonstrating a 22% increase in tactile sensitivity across 500 clinical trials.
+                        </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl text-sm font-bold tracking-tight hover:bg-primary-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">article</span> DOI Index
+                            </button>
+<button class="bg-surface-container-highest text-tertiary px-6 py-2.5 rounded-xl text-sm font-bold tracking-tight hover:bg-surface-container-high transition-all">
+                                Download PDF
+                            </button>
+</div>
+</div>
+</article>
+<!-- Entry 02 -->
+<article class="group relative grid md:grid-cols-[1fr_2fr] gap-8 items-start">
+<div class="space-y-4 pt-1">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim inline-block"></span>
+<span class="text-xs font-headline font-bold uppercase tracking-[0.2em] text-secondary">Conference · 2023</span>
+</div>
+<div class="aspect-[4/3] bg-surface-container-low rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Robotic hand haptics" class="w-full h-full object-cover" data-alt="Bio-inspired robotic hand demonstrating tactile feedback" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaXUBkp0qri9XLHUz241bkXSic56tAKG3CwKHrViwzPgtBQDT772mar3wSCmWvFaTfsM31-rfsq1zVmZb9n5kOQ-HOt8ttLJyaJ_z8uRFoTHj5gQ1WKl3pU-qcG_s9CAQhSHCPe6vz2aE-bzhxXYJNpGU2x5ziiorUc3Wq5ZxQnEmqG-DmeP6mNAAZo3Qkc7EnMGV0J3qmUHf1bZSh6nhN7SH6yOBQXzWa_-6FSy5GOFVHB4h5D9PgfCapvcfLzG-bDN_uTpK3nvg"/>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/5">
+<h2 class="text-2xl font-headline font-bold tracking-tight text-[#4CD6FF] mb-3 group-hover:underline decoration-2 underline-offset-4 cursor-pointer">
+                            Sub-Millimeter Tactile Rendering via Bio-inspired Actuation
+                        </h2>
+<p class="text-primary font-medium mb-2 font-body text-sm">
+                            Alex Rivera, Dr. Helena Thorne
+                        </p>
+<p class="text-secondary italic mb-4 font-body text-sm">
+                            Proceedings of the International Haptics Conference (IHC), Tokyo.
+                        </p>
+<p class="text-secondary font-body leading-relaxed mb-8">
+                            Utilizing a novel pneumatic mesh, we achieved tactile resolutions previously impossible in consumer-grade wearable devices.
+                        </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl text-sm font-bold tracking-tight hover:bg-primary-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">mic_external_on</span> Workshop Presentation
+                            </button>
+<button class="bg-surface-container-highest text-tertiary px-6 py-2.5 rounded-xl text-sm font-bold tracking-tight hover:bg-surface-container-high transition-all">
+                                View Abstract
+                            </button>
+</div>
+</div>
+</article>
+<!-- Entry 03 -->
+<article class="group relative grid md:grid-cols-[1fr_2fr] gap-8 items-start">
+<div class="space-y-4 pt-1">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim inline-block"></span>
+<span class="text-xs font-headline font-bold uppercase tracking-[0.2em] text-secondary">Preprint · 2024</span>
+</div>
+<div class="aspect-[4/3] bg-surface-container-low rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Data visualization" class="w-full h-full object-cover" data-alt="Complex data visualization showing neural tactile patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQRFQNvkZr3Eg-PK1iW-ACckOTl5QL0dimiqF4EyC8JPgVLlbBX7fz_q_Uu04wJvTSjgKeNkSctnfLKZ9uDQVr54pdzSTKYqD5jJ8bkyfcCA1NSrNaHhZX0gx-UaR_wj-v16MG8swJ7Y4BTDFtlR737mhOVZVNdRiBsTV0czuogijaUDeBIV7YUeOY-NxtEq3U1G9a9HoKKxFa03JSg7VpVCKnLqbbI5z9G_2hYGXBmczyeNWzD_sqQ17Ywd5GbNczorC7-ynZUzg"/>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/5">
+<h2 class="text-2xl font-headline font-bold tracking-tight text-[#4CD6FF] mb-3 group-hover:underline decoration-2 underline-offset-4 cursor-pointer">
+                            Neural-Tactile Integration: A Comparative Meta-Analysis
+                        </h2>
+<p class="text-primary font-medium mb-2 font-body text-sm">
+                            Dr. Sarah Jenkins, Lisa Wong
+                        </p>
+<p class="text-secondary italic mb-4 font-body text-sm">
+                            In Review: Nature Communications
+                        </p>
+<p class="text-secondary font-body leading-relaxed mb-8">
+                            An exhaustive review of over 200 papers exploring how the human brain processes multi-modal tactile data during deep immersion tasks.
+                        </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl text-sm font-bold tracking-tight hover:bg-primary-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">description</span> Read Preprint
+                            </button>
+<button class="bg-surface-container-highest text-tertiary px-6 py-2.5 rounded-xl text-sm font-bold tracking-tight hover:bg-surface-container-high transition-all">
+                                Data Ethics
+                            </button>
+</div>
+</div>
+</article>
+</div>
+<!-- Load More Indicator -->
+<div class="mt-20 flex justify-center">
+<button class="group flex flex-col items-center gap-4">
+<span class="text-xs font-headline font-bold uppercase tracking-[0.3em] text-secondary group-hover:text-primary transition-colors">Discover Older Archives</span>
+<span class="material-symbols-outlined animate-bounce text-tertiary-fixed-dim">keyboard_double_arrow_down</span>
+</button>
+</div>
+</main>
+</div>
+<!-- Footer Anchor -->
+<footer class="w-full py-12 border-t border-[#EFF4F6] dark:border-[#1E202B] bg-[#F5FAFC] dark:bg-[#070913]">
+<div class="max-w-[1440px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<span class="font-['Inter'] text-xs tracking-normal uppercase text-[#4E616A]">
+                © 2024 Clinical Precisionist Research. All rights reserved.
+            </span>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-['Inter'] text-xs tracking-normal uppercase text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Protocol</a>
+<a class="font-['Inter'] text-xs tracking-normal uppercase text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] opacity-80 hover:opacity-100 transition-opacity" href="#">Data Ethics</a>
+<a class="font-['Inter'] text-xs tracking-normal uppercase text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a>
+<a class="font-['Inter'] text-xs tracking-normal uppercase text-[#4E616A] hover:text-[#070913] dark:hover:text-[#F5FAFC] opacity-80 hover:opacity-100 transition-opacity" href="#">DOI Index</a>
+</div>
+</div>
+</footer>
+</body></html>

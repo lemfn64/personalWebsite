@@ -1,6 +1,19 @@
 {
   "publications": [
     {
+      "title": "From Psychophysics Evaluation to Application: Developing Haptic and Visual Interfaces",
+      "authors": "Luis Enrique Mesias Flores",
+      "year": 2026,
+      "type": "Dissertation",
+      "venue": "Case Western Reserve University, EECS - Electrical Engineering",
+      "note": "Doctoral dissertation.",
+      "doi": "",
+      "url": "/dissertation/",
+      "links": [
+        { "label": "Dissertation", "url": "/dissertation/" }
+      ]
+    },
+    {
       "title": "Distally-referred surface electrical nerve stimulation (DR-SENS) for haptic feedback",
       "authors": "Luis Mesias et al.",
       "year": 2024,
